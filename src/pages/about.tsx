@@ -8,11 +8,11 @@ import MainLayout from '@/layout/layout';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function About() {
   return (
     <>
-      <MainLayout>          
-          Home PAGE
+      <MainLayout>
+        <h1>This is about</h1>
       </MainLayout>
     </>
   )
