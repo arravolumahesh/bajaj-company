@@ -6,7 +6,8 @@ import MuiLink, { LinkProps as MuiLinkProps } from '@mui/material/Link';
 import { styled } from '@mui/material/styles';
 
 // Add support for the sx prop for consistency with the other branches.
-const Anchor = styled('a')({});
+const Anchor = styled('span')({});
+const AnchorTag = styled('a')({});
 
 interface NextLinkComposedProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>,
@@ -19,7 +20,7 @@ export const NextLinkComposed = React.forwardRef<
   HTMLAnchorElement,
   NextLinkComposedProps
 >(function NextLinkComposed(props, ref) {
-  const { to, linkAs, replace, scroll, shallow, prefetch, locale, ...other } =
+  const { to, linkAs, replace, scroll, shallow, prefetch, locale,  ...other } =
     props;
 
   return (
@@ -32,8 +33,9 @@ export const NextLinkComposed = React.forwardRef<
       shallow={shallow}
       passHref
       locale={locale}
+      ref={ref}
     >
-      <Anchor ref={ref} {...other} />
+      <Anchor  {...other} />
     </NextLink>
   );
 });
@@ -49,7 +51,7 @@ export type LinkProps = {
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/api-reference/next/link
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+const CSLink = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   props,
   ref
 ) {
@@ -81,7 +83,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
 
   if (isExternal) {
     if (noLinkStyle) {
-      return <Anchor className={className} href={href} ref={ref} {...other} />;
+      return <AnchorTag className={className} href={href} ref={ref} {...other} />;
     }
 
     return <MuiLink className={className} href={href} ref={ref} {...other} />;
@@ -120,4 +122,4 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(
   );
 });
 
-export default Link;
+export default CSLink;

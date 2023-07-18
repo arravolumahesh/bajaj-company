@@ -24,7 +24,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import { NextLinkComposed } from '@/components/link';
+import CSLink, { NextLinkComposed } from '@/components/link';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useRouter } from 'next/router';
 import ToggleButton from '@mui/material/ToggleButton';
@@ -35,28 +35,32 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 const menuData = [
     {
       label: 'Home',
+      url:'/',
       submenu: [
-        { label: 'Submenu Item 1' },
-        { label: 'Submenu Item 2' },
-        { label: 'Submenu Item 3' },
+        { label: 'Submenu Item 1',url:'/' },
+        { label: 'Submenu Item 2',url:'/' },
+        { label: 'Submenu Item 3',url:'/' },
       ],
     },
     {
       label: 'About',
+      url:'/about',
       submenu: [
-        { label: 'Submenu Item 4' },
-        { label: 'Submenu Item 5' },
+        { label: 'Submenu Item 4',url:'/about', },
+        { label: 'Submenu Item 5',url:'/about', },
       ],
     },
-    { label: 'Contact' },
+    { label: 'Contact',url:'/contact' },
   ];
 
 
 
 export default function HeaderLayout(): JSX.Element {
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const [parentOpen, setParentOpen] = React.useState<string>('');
     const router = useRouter()
-    const {locale,locales} = router
+    const {locale,locales,asPath} = router
 
     const handleDrawerToggle = () => {
       setMobileOpen((prevState) => !prevState);
@@ -64,6 +68,22 @@ export default function HeaderLayout(): JSX.Element {
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
+
+const openSubmenu = (event: React.MouseEvent<HTMLElement>,parent: string) => {
+  setAnchorEl(event.currentTarget);
+  setParentOpen(parent)
+  console.log('clicler')
+};
+const handleClose = () => {
+  setAnchorEl(null);
+};
+
+const handleCloseMenu = () => {
+  console.log('sdasd')
+  setAnchorEl(null);
+  setParentOpen('');
+};
+
 
 
 const drawer = (
@@ -89,24 +109,38 @@ const drawer = (
     return menuItems.map((item: typeof menuData[0]) => {
       if (item.submenu) {
         return (
-          <MenuItem key={item.label} sx={{color:'#000'}}>
-            {item.label} <ArrowDropDownIcon />
-            <Menu open={false}>
+          <MenuItem 
+          key={item.label}
+          component={CSLink} noLinkStyle href={item.url} sx={{
+            color:'primary.main'
+          }}
+          >
+            {item.label}
+            <Box component={'span'}  onClick={(e) => openSubmenu(e,item.label)} ><ArrowDropDownIcon color='primary'/></Box>
+            <Menu 
+            open={parentOpen === item.label ? true : false}
+            anchorEl={anchorEl}
+            onClose={handleCloseMenu}
+            >
               {renderMenuItems(item.submenu)}
             </Menu>
           </MenuItem>
         );
       }
-      return <MenuItem key={item.label} sx={{color:'#000'}}>{item.label}</MenuItem>;
+      return <MenuItem 
+      key={item.label}
+      component={CSLink} noLinkStyle href={item.url} sx={{
+        color:'primary.main'
+      }}>{item.label}</MenuItem>; 
     });
   }
   
   const handleChangeTranslate = (
     event: React.MouseEvent<HTMLElement>,
-    newAlignment: string,
+    newLocle: string,
   ) => {
-    router.push('/',undefined,{
-        locale:newAlignment
+    router.push(asPath,undefined,{
+        locale:newLocle
     })
   };
 
@@ -130,8 +164,7 @@ const drawer = (
                             BAJAJ BEYOND
                         </Typography>                        
                         <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
-                            {renderMenuItems(menuData)}
-                            <Box sx={{color:'#333'}}>{locale}</Box>
+                            {renderMenuItems(menuData)}                            
                             <ToggleButtonGroup
                                 color="primary"
                                 value={locale}

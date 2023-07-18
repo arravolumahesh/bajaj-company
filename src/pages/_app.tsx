@@ -11,6 +11,7 @@ import '@fontsource/roboto/700.css';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '@/styles/lightThemeOptions';
 import '../styles/globals.css';
+import { appWithTranslation } from 'next-i18next';
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -32,4 +33,4 @@ const MyApp: React.FunctionComponent<MyAppProps> = (props) => {
   );
 };
 
-export default MyApp;
+export default appWithTranslation(MyApp)

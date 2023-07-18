@@ -4,10 +4,11 @@ import createEmotionServer from '@emotion/server/create-instance';
 
 import createEmotionCache from '../utility/createEmotionCache';
 
+
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang={this.props.locale}>
         <Head>
           <link
             rel="stylesheet"
@@ -48,6 +49,7 @@ MyDocument.getInitialProps = async (ctx) => {
   // 3. app.render
   // 4. page.render
 
+  const locale = ctx.locale ?? 'en'
   const originalRenderPage = ctx.renderPage;
 
   // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
@@ -78,6 +80,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
   return {
     ...initialProps,
+    locale,
     // Styles fragment is rendered after the app and page rendering finish.
     styles: [
       ...React.Children.toArray(initialProps.styles),
