@@ -72,14 +72,14 @@ const navItems = ['Home', 'About', 'Contact'];
 const openSubmenu = (event: React.MouseEvent<HTMLElement>,parent: string) => {
   setAnchorEl(event.currentTarget);
   setParentOpen(parent)
-  console.log('clicler')
+  
 };
 const handleClose = () => {
   setAnchorEl(null);
 };
 
 const handleCloseMenu = () => {
-  console.log('sdasd')
+  
   setAnchorEl(null);
   setParentOpen('');
 };

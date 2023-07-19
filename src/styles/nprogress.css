@@ -1,0 +1,18 @@
+#nprogress{    
+    z-index: 9999;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+}
+
+#nprogress .bar {
+    height: 4px;
+    background: #2aa0f3;
+    z-index: 9999999999999999;
+  }
+  #nprogress .spinner-icon {
+    width: 25px;
+    height: 25px;
+    border: solid 3px transparent;
+  }
