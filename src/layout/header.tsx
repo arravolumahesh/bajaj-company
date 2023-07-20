@@ -112,11 +112,11 @@ const drawer = (
           <MenuItem 
           key={item.label}
           component={CSLink} noLinkStyle href={item.url} sx={{
-            color:'primary.main'
+            color:'primary.main',
           }}
           >
             {item.label}
-            <Box component={'span'}  onClick={(e) => openSubmenu(e,item.label)} ><ArrowDropDownIcon color='primary'/></Box>
+            <Box component={'span'} sx={{pt:1}}  onClick={(e) => openSubmenu(e,item.label)} ><ArrowDropDownIcon color='primary'/></Box>
             <Menu 
             open={parentOpen === item.label ? true : false}
             anchorEl={anchorEl}
@@ -159,11 +159,11 @@ const drawer = (
                 >
                     <MenuIcon />
                 </IconButton>
-                    <Container maxWidth="lg" sx={{display:'flex',justifyContent:'space-between'}}>
+                    <Container maxWidth="lg" sx={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
                         <Typography variant="h6" noWrap component="div" color="black">
                             BAJAJ BEYOND
                         </Typography>                        
-                        <Box sx={{ display: { xs: 'none', sm: 'flex' } }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'flex' },alignItems:'center' }}>
                             {renderMenuItems(menuData)}                            
                             <ToggleButtonGroup
                                 color="primary"
