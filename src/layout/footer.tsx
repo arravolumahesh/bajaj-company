@@ -1,9 +1,12 @@
-import { Box, Container, Divider, List, ListItem, ListItemText, Stack, Typography } from "@mui/material";
+import { Box, Container, Divider, List, ListItem, ListItemIcon, ListItemText, Stack, Typography } from "@mui/material";
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import CSLink from "@/components/link";
 
 export default function FooterLayout(): JSX.Element {
     return (
         <>
-            <Box component={'section'}>
+            <Box component={'section'} sx={{backgroundColor:'#333',py:4}}>
                 <Container maxWidth={"lg"}>
                     <Stack
                         direction={{xs:'column',lg:'row'}}
@@ -12,13 +15,30 @@ export default function FooterLayout(): JSX.Element {
                     >
                         <Box>
                             Logo Box
+
+                            <List dense={true}>                                
+                                    <ListItem>
+                                    <ListItemIcon>
+                                        <EmailIcon color="info" />
+                                    </ListItemIcon>
+                                    <ListItemText primary="info@bajajbeyond.com" />
+                                    </ListItem>
+                                
+                                    <ListItem>
+                                    <ListItemIcon>
+                                        <LocalPhoneIcon color="info" />
+                                    </ListItemIcon>
+                                    <ListItemText primary="1800 000 1234" />
+                                    </ListItem>
+
+                                </List>
                         </Box>
                         <Box>
                             <Typography variant="h4" >Our Business</Typography>
                             <Divider color="#fff" />
                             <List dense={true}>                                
-                                <ListItem>
-                                     <ListItemText primary="Bajaj Auto"/>
+                                <ListItem component={CSLink} noLinkStyle href="/">
+                                     <ListItemText  primary="Bajaj Auto"/>
                                 </ListItem>
                                 <ListItem>
                                 <ListItemText primary="Bajaj Finserv"/>
