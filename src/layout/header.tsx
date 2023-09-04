@@ -48,7 +48,6 @@ export default function HeaderLayout(): JSX.Element {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [parentOpen, setParentOpen] = React.useState<string>('');
-    const router = useRouter()
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -133,7 +132,7 @@ export default function HeaderLayout(): JSX.Element {
 
     return (
         <>
-            <AppBar position="fixed">
+            <AppBar position="sticky">
                 <Toolbar sx={{backgroundColor: 'background.paper'}}>
                     <IconButton
                         color="primary"
