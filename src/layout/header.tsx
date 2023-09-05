@@ -20,29 +20,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {Container, ListItem} from "@mui/material";
 
 
-const menuData = [
-    {
-        label: 'Home',
-        url: '/',
-        submenu: [
-            {label: 'Submenu Item 1', url: '/'},
-            {label: 'Submenu Item 2', url: '/'},
-            {label: 'Submenu Item 3', url: '/'},
-        ],
-    },
-    {
-        label: 'About',
-        url: '/about',
-        submenu: [
-            {label: 'Submenu Item 4', url: '/about',},
-            {label: 'Submenu Item 5', url: '/about',},
-        ],
-    },
-    {label: 'Contact', url: '/contact'},
-];
-
-
-export default function HeaderLayout(): JSX.Element {
+const HeaderLayout = () => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [parentOpen, setParentOpen] = React.useState<string>('');
@@ -183,3 +161,26 @@ export default function HeaderLayout(): JSX.Element {
 
     );
 }
+
+export default HeaderLayout
+
+const menuData = [
+    {
+        label: 'Home',
+        url: '/',
+        submenu: [
+            {label: 'Submenu Item 1', url: '/'},
+            {label: 'Submenu Item 2', url: '/'},
+            {label: 'Submenu Item 3', url: '/'},
+        ],
+    },
+    {
+        label: 'About',
+        url: '/about',
+        submenu: [
+            {label: 'Submenu Item 4', url: '/about',},
+            {label: 'Submenu Item 5', url: '/about',},
+        ],
+    },
+    {label: 'Contact', url: '/contact'},
+];
