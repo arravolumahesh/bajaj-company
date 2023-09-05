@@ -8,7 +8,17 @@ const HomePage = () => {
 
             <EnhancedSwiper
                 SlideComponent={EnhancedSwiperCard}
-                data={[{data: {title: "title", description: "description"}}]}
+                data={[{data: {title: "title", description: "description"}}, {
+                    data: {
+                        title: "title",
+                        description: "description"
+                    }
+                }, {data: {title: "title", description: "description"}}, {
+                    data: {
+                        title: "title",
+                        description: "description"
+                    }
+                }]}
             />
         </div>
     );
