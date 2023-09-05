@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import EnhancedSwiper, { EnhancedSwiperCard } from "@cc/enhanced-swiper";
-import { SmallTitleCard } from "@/commonComponents/smallTitleCard";
+import { SwipeCard } from "@/commonComponents/swipeCard";
 
 const HomePage = () => {
   return (
@@ -8,7 +8,7 @@ const HomePage = () => {
       <Button>Home Page</Button>
 
       <EnhancedSwiper
-        SlideComponent={SmallTitleCard}
+        SlideComponent={SwipeCard}
         data={[{ data: { title: "title", description: "description" } }]}
       />
     </div>
