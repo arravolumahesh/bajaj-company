@@ -8,8 +8,23 @@ const HomePage = () => {
       <Button>Home Page</Button>
 
       <EnhancedSwiper
-        SlideComponent={SwipeCard}
-        data={[{ data: { title: "title", description: "description" } }]}
+        SlideComponent={EnhancedSwiperCard}
+        data={[
+          { data: { title: "title", description: "description" } },
+          {
+            data: {
+              title: "title",
+              description: "description",
+            },
+          },
+          { data: { title: "title", description: "description" } },
+          {
+            data: {
+              title: "title",
+              description: "description",
+            },
+          },
+        ]}
       />
     </div>
   );
