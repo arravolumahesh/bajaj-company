@@ -13,11 +13,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import CSLink from '@/commonComponents/link';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import {Container, ListItem} from "@mui/material";
+import CSLink from "@cc/m-link";
 
 
 const HeaderLayout = () => {
@@ -72,8 +72,7 @@ const HeaderLayout = () => {
             if (item.submenu) {
                 return (
                     <MenuItem
-                        key={item.label}
-                        component={CSLink} noLinkStyle href={item.url} sx={{
+                        key={item.label} sx={{
                         color: 'primary.main',
                     }}
                     >
@@ -91,8 +90,7 @@ const HeaderLayout = () => {
                 );
             }
             return <MenuItem
-                key={item.label}
-                component={CSLink} noLinkStyle href={item.url} sx={{
+                key={item.label} sx={{
                 color: 'primary.main'
             }}>{item.label}</MenuItem>;
         });

@@ -2,7 +2,6 @@
 import {Box, Container, Divider, List, ListItem, ListItemIcon, ListItemText, Stack, Typography} from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import CSLink from "@/commonComponents/link";
 
 export default function FooterLayout(): JSX.Element {
     return (
@@ -38,7 +37,7 @@ export default function FooterLayout(): JSX.Element {
                             <Typography variant="h4">Our Business</Typography>
                             <Divider color="#fff"/>
                             <List dense={true}>
-                                <ListItem component={CSLink} noLinkStyle href="/">
+                                <ListItem noLinkStyle href="/">
                                     <ListItemText primary="Bajaj Auto"/>
                                 </ListItem>
                                 <ListItem>

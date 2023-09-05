@@ -1,7 +1,7 @@
 "use client"
 import {Swiper, SwiperProps, SwiperSlide, SwiperSlideProps} from "swiper/react";
 import {ComponentProps, ComponentType} from "react";
-import "swiper/swiper-bundle.min.css";
+import "../../node_modules/swiper/swiper-bundle.min.css"
 import {styled} from "@mui/material/styles";
 
 
