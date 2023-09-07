@@ -38,7 +38,7 @@ export const LargeImageCard = (props: LargeImageCardProps) => {
           left: 0,
           bottom: 0,
           width: data.typeStory ? "469px" : "463px",
-          height: data.typeStory ? "auto" : "208px",
+          height: "auto",
           bgcolor: data.typeStory ? "#000000CC" : "#FFFFFFD9",
           pl: data.typeStory ? 5 : 2,
           pt: data.typeStory ? 5 : 2,
