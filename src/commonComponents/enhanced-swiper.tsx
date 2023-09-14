@@ -32,10 +32,10 @@ export interface EnhancedSwiperProps<T extends ComponentType<any> = ComponentTyp
 
 export type EnhancedSwiperSlideData<T> = EnhancedSwiperProps<any, T>['SlideComponent']
 
-const MaterialSwiper = styled(Swiper)(({theme}) => {
+export const MaterialSwiper = styled(Swiper)(({theme}) => {
     return theme.unstable_sx({})
 });
-const MaterialSwiperSlide = styled(SwiperSlide)(({theme}) => {
+export const MaterialSwiperSlide = styled(SwiperSlide)(({theme}) => {
     return theme.unstable_sx({})
 });
 
