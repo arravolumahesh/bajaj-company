@@ -42,7 +42,7 @@ const ThemeRegistry = (props: ThemeRegistryProps) => {
         const {prepend} = options
         const names = flush()
         if (names.length === 0) {
-            return 0
+            return;
         }
         let styles = ''
         for (const name of names) {

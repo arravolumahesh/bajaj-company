@@ -1,5 +1,6 @@
 import {Components, Theme, ThemeOptions} from '@mui/material';
 import {helvetica} from 'app/font';
+import {TypographyOptions} from "@mui/material/styles/createTypography";
 
 /**
  * @ThemeOptions['typography']
