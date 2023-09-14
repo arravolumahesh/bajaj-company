@@ -1,33 +1,15 @@
-import EnhancedSwiper from "@cc/enhanced-swiper";
-import { LargeImageCard } from "@cc/cards/largeImageCard";
 import MLink from "@cc/m-link";
+import { Stack } from "@mui/material";
+import AnimatedButton from "@cc/animated-button";
 
 const HomePage = () => {
   return (
-    <div>
-      <MLink href={"/"} variant={"outlined"}>
+    <Stack p={4} bgcolor={"primary.main"} spacing={4}>
+      <MLink href={"/"} variant={"outlined"} color={"inherit"}>
         Home Page
       </MLink>
-      <EnhancedSwiper
-        SlideComponent={LargeImageCard}
-        data={[
-          { data: { title: "title", description: "description" } },
-          {
-            data: {
-              title: "title",
-              description: "description",
-            },
-          },
-          { data: { title: "title", description: "description" } },
-          {
-            data: {
-              title: "title",
-              description: "description",
-            },
-          },
-        ]}
-      />
-    </div>
+      <AnimatedButton href={"./"}>Animated Button</AnimatedButton>
+    </Stack>
   );
 };
 
