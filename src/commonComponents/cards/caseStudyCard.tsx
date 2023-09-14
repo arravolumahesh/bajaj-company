@@ -1,7 +1,7 @@
 "use client";
 import {Card, CardContent, CardMedia, Divider, Typography,} from "@mui/material";
 import React from "react";
-import CSLink from "../m-link";
+import MLink from "../m-link";
 
 type CaseStudyCardProps = {
     data: {
@@ -56,9 +56,9 @@ export const CaseStudyCard = (props: CaseStudyCardProps) => {
                     </Typography>
                 )}
                 {data.link && (
-                    <CSLink href={data.link} typography={"subtitle1"} color={"#fff"}>
+                    <MLink href={data.link} typography={"subtitle1"} color={"#fff"}>
                         View Case Study
-                    </CSLink>
+                    </MLink>
                 )}
             </CardContent>
         </Card>

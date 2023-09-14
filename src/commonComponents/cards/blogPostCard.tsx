@@ -1,7 +1,7 @@
 "use client";
 import {Card, CardContent, CardMedia, Chip, Divider, Stack, Typography,} from "@mui/material";
 import React from "react";
-import CSLink from "../m-link";
+import MLink from "../m-link";
 
 export type BlogPostCardProps = {
     data: {
@@ -73,7 +73,7 @@ export const BlogPostCard = (props: BlogPostCardProps) => {
                         <Typography variant='h6'> 15 July 2023</Typography>
                     </Stack>
                 )}
-                <CSLink href='#'>Know More</CSLink>
+                <MLink href='#'>Know More</MLink>
             </CardContent>
         </Card>
     );
