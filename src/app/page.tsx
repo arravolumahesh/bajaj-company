@@ -1,4 +1,6 @@
 import {Button} from "@mui/material";
+import EnhancedSwiper from "@cc/enhanced-swiper";
+import {LargeImageCard} from "@cc/cards/largeImageCard";
 
 const HomePage = () => {
   return (
