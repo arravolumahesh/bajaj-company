@@ -9,19 +9,19 @@ import {Components, Theme} from '@mui/material';
  * @see https://mui.com/material-ui/react-dialog/#customization
  */
 export const DialogVariants: Components<Omit<Theme, 'components'>>['MuiDialog'] = {
-  styleOverrides: {
-    root: ({ ownerState, theme }) => {
-      const { sx: style } = ownerState;
-      return theme.unstable_sx([...(Array.isArray(style) ? style : [style])]);
-    },
-  },
-  defaultProps: {
-    componentsProps: {
-      backdrop: {
-        style: {
-          backdropFilter: 'blur(10px)',
+    styleOverrides: {
+        root: ({ownerState, theme}) => {
+            const {sx: style} = ownerState;
+            return theme.unstable_sx([...(Array.isArray(style) ? style : [style])]);
         },
-      },
     },
-  },
+    defaultProps: {
+        componentsProps: {
+            backdrop: {
+                style: {
+                    backdropFilter: 'blur(10px)',
+                },
+            },
+        },
+    },
 };

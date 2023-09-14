@@ -10,40 +10,40 @@ import {helvetica} from 'app/font';
  * @see https://mui.com/material-ui/react-css-baseline
  */
 export const CssBaselineTheme: Components<
-  Omit<Theme, 'components'>
+    Omit<Theme, 'components'>
 >['MuiCssBaseline'] = {
-  styleOverrides: (theme: Theme) => {
-    const { primary } = theme.palette;
-    return theme.unstable_sx({
-      html: {
-        WebkitTapHighlightColor: 'transparent',
-        ...helvetica.style,
-      },
-      ':root': {
-        scrollBehavior: 'smooth',
-      },
-      '*, *::before, *::after': {
-        boxSizing: 'border-box',
-        margin: 0,
-        padding: 0,
-      },
-      '::-webkit-scrollbar': {
-        width: '8px',
-        background: 'transparent',
-      },
-      '::-webkit-scrollbar-thumb': {
-        borderRadius: '4px',
-        backgroundColor: primary.main,
-      },
-      '::-webkit-scrollbar-thumb:hover': {
-        background: primary.dark,
-      },
-      body: {
-        backgroundColor: theme.palette.background.paper,
-      },
-    });
-  },
-  defaultProps: {
-    enableColorScheme: true,
-  },
+    styleOverrides: (theme: Theme) => {
+        const {primary} = theme.palette;
+        return theme.unstable_sx({
+            html: {
+                WebkitTapHighlightColor: 'transparent',
+                ...helvetica.style,
+            },
+            ':root': {
+                scrollBehavior: 'smooth',
+            },
+            '*, *::before, *::after': {
+                boxSizing: 'border-box',
+                margin: 0,
+                padding: 0,
+            },
+            '::-webkit-scrollbar': {
+                width: '8px',
+                background: 'transparent',
+            },
+            '::-webkit-scrollbar-thumb': {
+                borderRadius: '4px',
+                backgroundColor: primary.main,
+            },
+            '::-webkit-scrollbar-thumb:hover': {
+                background: primary.dark,
+            },
+            body: {
+                backgroundColor: theme.palette.background.paper,
+            },
+        });
+    },
+    defaultProps: {
+        enableColorScheme: true,
+    },
 };
