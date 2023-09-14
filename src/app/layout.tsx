@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import ThemeRegistry from "@style/themeRegistry";
+import ThemeRegistry from "@style/theme/themeRegistry";
 import HeaderLayout from "@/layout/header";
 import FooterLayout from "@/layout/footer";
 

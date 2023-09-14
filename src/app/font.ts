@@ -1,9 +1,21 @@
-import {Roboto} from "next/font/google";
+import localFont from "next/font/local";
 
-export const roboto = Roboto({
-    style: 'normal',
-    display: 'swap',
-    subsets: ['latin'],
-    weight: ['400', '700'],
-    fallback: ['system-ui', 'arial']
+export const helvetica = localFont({
+    display: "swap",
+    fallback: ['sans-serif'],
+    style: "normal",
+    preload: true,
+    src: [
+        {
+            weight: "400",
+            path: "../styles/fonts/Helvetica.ttf",
+        }, {
+            weight: "700",
+            path: "../styles/fonts/Helvetica-Bold.ttf",
+        },
+        {
+            weight: "300",
+            path: "../styles/fonts/Helvetica-Light.ttf",
+        }
+    ]
 })

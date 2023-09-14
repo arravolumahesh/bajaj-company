@@ -29,6 +29,12 @@
       "@style/*": [
         "styles/*"
       ],
+      "@theme": [
+        "styles/theme/index.ts"
+      ],
+      "@theme/*": [
+        "styles/theme/*"
+      ],
       "@util/*": [
         "utils/*"
       ]
