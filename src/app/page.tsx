@@ -1,6 +1,7 @@
 import MLink from "@cc/m-link";
 import { Stack } from "@mui/material";
 import AnimatedButton from "@cc/animated-button";
+import Logo from "@cc/Logo";
 
 const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ const HomePage = () => {
       <MLink href={"/"} variant={"outlined"} color={"inherit"}>
         Home Page
       </MLink>
+      <Logo />
       <AnimatedButton href={"./"}>Animated Button</AnimatedButton>
     </Stack>
   );

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ComponentProps, useMemo, useState } from "react";
 import MLink from "@cc/m-link";
 
-const MotionButton = motion(MLink, { forwardMotionProps: true });
+const MotionButton = motion(MLink);
 type MotionButtonProps = ComponentProps<typeof MotionButton>;
 
 interface AnimatedButtonProps extends MotionButtonProps {}
@@ -28,7 +28,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
           borderRadius: "inherit",
           transform: "translateX(-100%)",
           ...(isInView && {
-            transition: "transform 0.4s linear, height 0.2s linear 0.4s",
+            transition: "transform 0.4s linear 0.6s, height 0.2s linear 1s",
             height: "100%",
             transform: "translateX(0)",
           }),
@@ -45,7 +45,7 @@ const AnimatedButton = (props: AnimatedButtonProps) => {
           borderRadius: "inherit",
           transform: "translateX(100%)",
           ...(isInView && {
-            transition: "transform 0.4s linear 0.6s, height 0.2s linear 1s",
+            transition: "transform 0.4s linear, height 0.2s linear 0.4s",
             height: "100%",
             transform: "translateX(0)",
           }),
