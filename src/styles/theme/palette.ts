@@ -159,7 +159,7 @@ export const PaletteTheme = (
     },
     background: {
       default: isLight ? "#fff" : "#121212",
-      paper: isLight ? "#f5f5f5" : "#1e1e1e",
+      paper: isLight ? "#405A76" : "#1e1e1e",
     },
     common: {
       black: "#000",
@@ -177,8 +177,6 @@ export const PaletteTheme = (
         } 0%, ${(this?.secondary as SimplePaletteColorOptions).main} 45%, ${
           (this?.secondary as SimplePaletteColorOptions).dark
         } 100%)`,
-        // primary:
-        //   "linear-gradient(90deg, #0C1220 0%, #10365D 48.7%, #0C1220 100%);",
         secondary: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
       };
     },
