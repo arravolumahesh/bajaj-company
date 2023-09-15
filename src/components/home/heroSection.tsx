@@ -29,7 +29,7 @@ const HeroSection = () => {
         alignItems={"center"}
         width={"76%"}
         sx={{
-          m: "50px auto 87px",
+          m: "30px auto 67px",
         }}
       >
         <Stack sx={{ overflow: "hidden" }} ref={containerRef}>
@@ -97,7 +97,7 @@ const HeroSection = () => {
             </Slide>
           </AnimatedButton>
         </Stack>
-        <Stack direction='row' alignItems={"center"} minWidth={600}>
+        <Stack direction='row' alignItems={"center"} minWidth={528}>
           <Slide
             direction='right'
             in={logoAnimate}
@@ -116,9 +116,11 @@ const HeroSection = () => {
             orientation='horizontal'
             in={bannerAnimate}
             easing={"ease-out"}
-            timeout={1000}
+            timeout={1200}
             sx={{
               clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
+              // clipPath:
+              //   "polygon(75% 0%, 100% 50%, 74% 100%, 0% 100%, 25% 50%, 0 0)",
             }}
             onTransitionEnd={() => setHeaderAnimate(true)}
           >
