@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import Link, { LinkProps } from "next/link";
 import { Button, ButtonProps } from "@mui/material";
 
-type MLinkProps = ButtonProps<typeof Link> & {
+export type MLinkProps = ButtonProps<typeof Link> & {
   href: LinkProps["href"];
 };
 

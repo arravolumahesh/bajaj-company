@@ -1,7 +1,7 @@
 import MLink from "@cc/m-link";
 import { Stack } from "@mui/material";
 import AnimatedButton from "@cc/animated-button";
-import Logo from "@cc/Logo";
+import Logo from "@cc/logo";
 
 const HomePage = () => {
   return (

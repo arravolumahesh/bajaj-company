@@ -1,26 +1,24 @@
-import {ReactNode} from "react";
+import { ReactNode } from "react";
 import ThemeRegistry from "@style/theme/themeRegistry";
 import HeaderLayout from "@/layout/header";
 import FooterLayout from "@/layout/footer";
 
 interface LayoutProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout = (props: LayoutProps) => {
-    const {children} = props
+    const { children } = props;
     return (
-        <html lang="en">
+      <html lang="en">
         <body>
-        <ThemeRegistry>
-            <HeaderLayout/>
-            <main>
-                {children}
-            </main>
-            <FooterLayout/>
-        </ThemeRegistry>
+          <ThemeRegistry>
+            <HeaderLayout />
+            <main>{children}</main>
+            <FooterLayout />
+          </ThemeRegistry>
         </body>
-        </html>
+      </html>
     );
 };
 
