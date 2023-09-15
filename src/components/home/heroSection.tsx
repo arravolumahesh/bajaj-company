@@ -1,11 +1,18 @@
+"use client";
 import AnimatedButton from "@/commonComponents/animated-button";
-import { Stack, Typography } from "@mui/material";
+import { Collapse, Slide, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BajajLogo from "./images/Graphics.svg";
 import Banner from "./images/Group 427321830.svg";
 
 const HeroSection = () => {
+  const [logoAnimate, setLogoAnimate] = useState(false);
+  const [bannerAnimate, setBannerAnimate] = useState(false);
+  useEffect(() => {
+    setLogoAnimate(true);
+  }, []);
+
   return (
     <Stack
       sx={{
@@ -17,7 +24,7 @@ const HeroSection = () => {
         alignItems={"center"}
         width={"76%"}
         sx={{
-          m: "30px auto 70px",
+          m: "50px auto 87px",
         }}
       >
         <Stack>
@@ -35,22 +42,40 @@ const HeroSection = () => {
           <AnimatedButton
             sx={{
               fontSize: "24px !important",
-              mt: 3,
+              mt: 4,
               width: "207px",
             }}
             href={"./"}
           >
-            View initiatives
+            View Initiatives
           </AnimatedButton>
         </Stack>
-        <Stack direction='row' alignItems={"center"}>
-          <Image
-            src={BajajLogo}
-            alt='Bajaj Beyond Logo'
-            height={600}
-            style={{ marginRight: "-167px" }}
-          />
-          <Image src={Banner} alt='Video Banner' height={543} />
+        <Stack direction='row' alignItems={"center"} minWidth={600}>
+          <Slide
+            direction='right'
+            in={logoAnimate}
+            timeout={800}
+            onTransitionEnd={() => setBannerAnimate(true)}
+            easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}
+          >
+            <Image
+              src={BajajLogo}
+              alt='Bajaj Beyond Logo'
+              height={600}
+              style={{ marginRight: "-167px" }}
+            />
+          </Slide>
+          <Collapse
+            orientation='horizontal'
+            in={bannerAnimate}
+            easing={"ease-out"}
+            timeout={1000}
+            sx={{
+              clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
+            }}
+          >
+            <Image src={Banner} alt='Video Banner' height={543} />
+          </Collapse>
         </Stack>
       </Stack>
     </Stack>
