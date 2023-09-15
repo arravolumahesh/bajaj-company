@@ -62,7 +62,7 @@ const HeroSection = () => {
               src={BajajLogo}
               alt='Bajaj Beyond Logo'
               height={600}
-              style={{ marginRight: "-167px" }}
+              style={{ marginRight: "-167px", zIndex: 1 }}
             />
           </Slide>
           <Collapse
