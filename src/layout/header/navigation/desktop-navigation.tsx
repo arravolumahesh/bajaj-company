@@ -1,4 +1,4 @@
-import { ButtonGroup, SxProps, Theme } from "@mui/material";
+import { ButtonGroup } from "@mui/material";
 import NavItem from "@/layout/header/navigation/nav-item";
 import { HeaderProps } from "@/layout/header";
 
@@ -31,15 +31,3 @@ const DesktopNavigation = (props: DesktopNavigationProps) => {
 };
 
 export default DesktopNavigation;
-
-const navigationListSx: SxProps<Theme> = (theme) => {
-  return {
-    display: "flex",
-    height: "inherit",
-    overflow: "hidden",
-    border: `1px solid ${theme.palette.common.white}`,
-    [theme.breakpoints.down("lg")]: {
-      display: "none",
-    },
-  };
-};
