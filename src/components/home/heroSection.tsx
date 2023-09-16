@@ -1,19 +1,14 @@
 "use client";
 import AnimatedButton from "@/commonComponents/animated-button";
-import { Box, Collapse, Fade, Slide, Stack, Typography } from "@mui/material";
+import { Box, Slide, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ComponentProps } from "react";
 import BajajLogo from "./images/Graphics.svg";
 import Banner from "./images/Group 427321830.svg";
+import { MotionProps, motion } from "framer-motion";
 
 const HeroSection = () => {
   const [logoAnimate, setLogoAnimate] = useState(false);
-  const [bannerAnimate, setBannerAnimate] = useState(false);
-  const [headerAnimate, setHeaderAnimate] = useState(false);
-  const [subtitleAnimate, setSubtitleAnimate] = useState(false);
-  const [buttonAnimate, setButtonAnimate] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const btnContainerRef = useRef<HTMLElement>(null);
   useEffect(() => {
     setLogoAnimate(true);
   }, []);
@@ -32,77 +27,46 @@ const HeroSection = () => {
           m: "30px auto 67px",
         }}
       >
-        <Stack sx={{ overflow: "hidden" }} ref={containerRef}>
-          <Slide
-            direction='up'
-            in={headerAnimate}
-            timeout={800}
-            easing={"ease-out"}
-            container={containerRef.current}
-            onTransitionEnd={() => setSubtitleAnimate(true)}
+        <Stack
+          component={motion.div}
+          variants={staggerDiv}
+          initial={"initial"}
+          animate={"animate"}
+        >
+          <MotionTypography
+            variant='h1'
+            color={"#fff"}
+            sx={{ fontWeight: 400, mb: 2 }}
+            variants={staggerChildren}
           >
-            <Box>
-              <Fade in={headerAnimate} timeout={2000}>
-                <Typography
-                  variant='h1'
-                  color={"#fff"}
-                  sx={{ fontWeight: 400, mb: 2 }}
-                >
-                  TURNING POTENTIAL TO PROGRESS
-                </Typography>
-              </Fade>
-            </Box>
-          </Slide>
-
-          <Slide
-            direction='up'
-            in={subtitleAnimate}
-            timeout={800}
-            easing={"ease-out"}
-            container={containerRef.current}
-            onTransitionEnd={() => setButtonAnimate(true)}
+            TURNING POTENTIAL TO PROGRESS
+          </MotionTypography>
+          <MotionTypography
+            variant='body1'
+            color={"#fff"}
+            variants={staggerChildren}
           >
-            <Box>
-              <Fade in={subtitleAnimate} timeout={1500}>
-                <Typography variant='body1' color={"#fff"}>
-                  The wheels of a self-reliant future are turning with equal
-                  opportunities for all.
-                </Typography>
-              </Fade>
-            </Box>
-          </Slide>
+            The wheels of a self-reliant future are turning with equal
+            opportunities for all.
+          </MotionTypography>
           <AnimatedButton
             sx={{
               mt: 4,
               width: "207px",
               bgcolor: "rgba(255, 255, 255, 0.10)",
+              fontSize: "24px !important",
             }}
             href={"./"}
-            ref={btnContainerRef}
+            variants={staggerChildren}
           >
-            <Slide
-              direction='up'
-              in={buttonAnimate}
-              timeout={1000}
-              easing={"ease-out"}
-              container={btnContainerRef.current}
-            >
-              <Box>
-                <Fade in={buttonAnimate} timeout={2000}>
-                  <Typography fontSize={"24px !important"}>
-                    View Initiatives
-                  </Typography>
-                </Fade>
-              </Box>
-            </Slide>
+            View Initiatives
           </AnimatedButton>
         </Stack>
         <Stack direction='row' alignItems={"center"} minWidth={528}>
           <Slide
             direction='right'
             in={logoAnimate}
-            timeout={800}
-            onTransitionEnd={() => setBannerAnimate(true)}
+            timeout={500}
             easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}
           >
             <Image
@@ -112,20 +76,23 @@ const HeroSection = () => {
               style={{ marginRight: "-167px", zIndex: 1 }}
             />
           </Slide>
-          <Collapse
-            orientation='horizontal'
-            in={bannerAnimate}
-            easing={"ease-out"}
-            timeout={1200}
+          <Box
             sx={{
-              clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
-              // clipPath:
-              //   "polygon(75% 0%, 100% 50%, 74% 100%, 0% 100%, 25% 50%, 0 0)",
+              width: 500,
+              height: 542,
+              overflow: "hidden",
+              // clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
+              clipPath:
+                "polygon(75% 0%, 100% 50%, 74% 100%, 0% 100%, 25% 50%, 0 0)",
             }}
-            onTransitionEnd={() => setHeaderAnimate(true)}
           >
-            <Image src={Banner} alt='Video Banner' height={543} />
-          </Collapse>
+            <MotionImage
+              src={Banner}
+              alt='Video Banner'
+              height={543}
+              {...imageTransition}
+            />
+          </Box>
         </Stack>
       </Stack>
     </Stack>
@@ -133,3 +100,49 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+const MotionImage = motion(Image);
+
+const MotionTypography = motion(Typography);
+
+const imageTransition: Omit<
+  ComponentProps<typeof MotionImage>,
+  "src" | "alt"
+> = {
+  style: {
+    transform: "translateX(-100%)",
+  },
+  initial: {
+    x: "-100%",
+  },
+  animate: {
+    x: 0,
+    transition: {
+      duration: 0.8,
+      delay: 0.2,
+    },
+  },
+};
+
+const staggerDiv: MotionProps["variants"] = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.4,
+      delayChildren: 1,
+    },
+  },
+};
+const staggerChildren: MotionProps["variants"] = {
+  initial: {
+    opacity: 0,
+    y: "30%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
