@@ -1,4 +1,4 @@
-import { List, ListItem, SxProps, Theme } from "@mui/material";
+import { ButtonGroup, SxProps, Theme } from "@mui/material";
 import NavItem from "@/layout/header/navigation/nav-item";
 import { HeaderProps } from "@/layout/header";
 
@@ -9,34 +9,24 @@ interface DesktopNavigationProps {
 const DesktopNavigation = (props: DesktopNavigationProps) => {
   const { routes } = props;
   return (
-    <List sx={navigationListSx} disablePadding>
+    <ButtonGroup variant={"outlined"}>
       {routes.map((route, index) => {
         route.title = route.title.toUpperCase();
         return (
-          <ListItem
+          <NavItem
             key={`${route.title}-${index}`}
-            disablePadding
-            disableGutters
+            data={route}
+            disableRipple={false}
             sx={{
-              height: "inherit",
-              borderRight: (theme) =>
-                `1px solid ${theme.palette.common.white} `,
+              fontSize: () => ({
+                xs: 18,
+                lg: 14,
+              }),
             }}
-          >
-            <NavItem
-              data={route}
-              disableRipple={false}
-              sx={{
-                fontSize: () => ({
-                  xs: 18,
-                  lg: 14,
-                }),
-              }}
-            />
-          </ListItem>
+          />
         );
       })}
-    </List>
+    </ButtonGroup>
   );
 };
 

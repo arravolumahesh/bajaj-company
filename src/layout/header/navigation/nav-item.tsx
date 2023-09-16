@@ -45,7 +45,6 @@ const NavItem = (props: NavItemProps) => {
       children: title,
       sx: [
         {
-          height: "inherit",
           color: "primary.contrastText",
           borderRadius: 0,
           background: (theme: Theme) =>
@@ -98,6 +97,7 @@ const NavItem = (props: NavItemProps) => {
                   endIcon={<ArrowRightRounded />}
                   MLinkProps={{
                     disableRipple: true,
+                    variant: "text",
                   }}
                 />
                 <ListItemSecondaryAction>
