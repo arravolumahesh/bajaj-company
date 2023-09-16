@@ -20,9 +20,9 @@ const HeroSection = () => {
       }}
     >
       <Stack
-        direction='row'
+        direction={{ xs: "column-reverse", md: "row" }}
         alignItems={"center"}
-        width={"76%"}
+        width={{ xs: "87.7%", md: "80%", lg_xl: "76%" }}
         sx={{
           m: "30px auto 67px",
         }}
@@ -52,9 +52,9 @@ const HeroSection = () => {
           <AnimatedButton
             sx={{
               mt: 4,
-              width: "207px",
+              width: { xs: "100%", md: "207px" },
               bgcolor: "rgba(255, 255, 255, 0.10)",
-              fontSize: "24px !important",
+              fontSize: { xs: "18px", md: "24px !important" },
             }}
             href={"./"}
             variants={staggerChildren}
@@ -62,24 +62,35 @@ const HeroSection = () => {
             View Initiatives
           </AnimatedButton>
         </Stack>
-        <Stack direction='row' alignItems={"center"} minWidth={528}>
+        <Stack
+          direction='row'
+          alignItems={"center"}
+          justifyContent={"center"}
+          width={{ xs: 1, md: 354, lg: 528, large: 651 }}
+        >
           <Slide
             direction='right'
             in={logoAnimate}
             timeout={500}
             easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}
           >
-            <Image
-              src={BajajLogo}
-              alt='Bajaj Beyond Logo'
-              height={600}
-              style={{ marginRight: "-167px", zIndex: 1 }}
-            />
+            <Box
+              sx={{
+                position: "relative",
+                mr: { xs: "-90px", lg: "-167px", large: "-230px" },
+                zIndex: 1,
+                width: { xs: 111, md: 117, lg: 221, large: 320 },
+                height: { xs: 350, md: 350, lg: 600, large: 700 },
+              }}
+            >
+              <Image src={BajajLogo} alt='Bajaj Beyond Logo' fill />
+            </Box>
           </Slide>
           <Box
             sx={{
-              width: 500,
-              height: 542,
+              position: "relative",
+              width: { xs: 255, md: 255, lg: 475, large: 560 },
+              height: { xs: 277, md: 300, lg: 543, large: 635 },
               overflow: "hidden",
               // clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
               clipPath:
@@ -89,8 +100,8 @@ const HeroSection = () => {
             <MotionImage
               src={Banner}
               alt='Video Banner'
-              height={543}
               {...imageTransition}
+              fill
             />
           </Box>
         </Stack>
