@@ -1,12 +1,7 @@
-import { Stack } from "@mui/material";
-import AnimatedButton from "@cc/animated-button";
+import HeroSection from "@/components/home/heroSection";
 
 const HomePage = () => {
-  return (
-    <Stack p={4} bgcolor={"primary.main"} spacing={4}>
-      <AnimatedButton href={"./"}>Animated Button</AnimatedButton>
-    </Stack>
-  );
+  return <HeroSection />;
 };
 
 export default HomePage;
