@@ -6,6 +6,7 @@ import {
   Menu,
   MenuItem,
   MenuProps,
+  Theme,
 } from "@mui/material";
 import MLink, { MLinkProps } from "@cc/m-link";
 import { MouseEvent, useCallback, useMemo, useState } from "react";
@@ -44,14 +45,15 @@ const NavItem = (props: NavItemProps) => {
       children: title,
       sx: [
         {
-          height: "inherit",
           color: "primary.contrastText",
           borderRadius: 0,
+          background: (theme: Theme) =>
+            anchorEl ? theme.palette.background.paper : "transparent",
         },
         ...sxArrayUtil(sx),
       ],
     };
-  }, [handleClick, sx, title]);
+  }, [handleClick, anchorEl, sx, title]);
 
   return (
     <>
@@ -95,6 +97,7 @@ const NavItem = (props: NavItemProps) => {
                   endIcon={<ArrowRightRounded />}
                   MLinkProps={{
                     disableRipple: true,
+                    variant: "text",
                   }}
                 />
                 <ListItemSecondaryAction>
