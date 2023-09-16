@@ -1,9 +1,7 @@
-const NavigationActions = () => {
-    return (
-        <div>
+import { Stack } from "@mui/material";
 
-        </div>
-    );
+const NavigationActions = () => {
+  return <Stack></Stack>;
 };
 
 export default NavigationActions;
