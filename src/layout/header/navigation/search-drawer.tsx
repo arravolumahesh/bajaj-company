@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import SectionWrapper from "@cc/section-wrapper";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}
@@ -45,74 +46,81 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
           }),
         }}
       >
-        <TextField
-          variant={"standard"}
-          fullWidth
-          placeholder={"Search for initiatives, companies, and more"}
-          value={searchKeyword}
-          onChange={(e) => {
-            setSearchKeyword(e.target.value);
-          }}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment
-                position={"start"}
-                sx={{
-                  mr: 2,
-                }}
-              >
-                <SearchRounded
-                  sx={{
-                    color: "grey.600",
-                  }}
-                />
-              </InputAdornment>
-            ),
-            ...(searchKeyword.length > 0 && {
-              endAdornment: (
+        <SectionWrapper bgcolor={"common.white"} py={0}>
+          <TextField
+            variant={"standard"}
+            fullWidth
+            placeholder={"Search for initiatives, companies, and more"}
+            value={searchKeyword}
+            onChange={(e) => {
+              setSearchKeyword(e.target.value);
+            }}
+            InputProps={{
+              startAdornment: (
                 <InputAdornment
-                  position={"end"}
-                  onClick={() => {
-                    setSearchKeyword("");
+                  position={"start"}
+                  sx={{
+                    mr: {
+                      xs: 1,
+                      md: 2,
+                    },
                   }}
                 >
-                  <IconButton>
-                    <CloseRounded
-                      sx={{
-                        color: "grey.600",
-                      }}
-                    />
-                  </IconButton>
+                  <SearchRounded
+                    sx={{
+                      color: "grey.600",
+                    }}
+                  />
                 </InputAdornment>
               ),
-            }),
-          }}
+              ...(searchKeyword.length > 0 && {
+                endAdornment: (
+                  <InputAdornment
+                    position={"end"}
+                    onClick={() => {
+                      setSearchKeyword("");
+                    }}
+                  >
+                    <IconButton>
+                      <CloseRounded
+                        sx={{
+                          color: "grey.600",
+                        }}
+                      />
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }),
+            }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: {
+                xs: 56,
+                md: 72,
+                xl: 80,
+              },
+              bgcolor: "transparent",
+              fontSize: { xs: "16px", md: "20px", xl: "24px" },
+            }}
+          />
+        </SectionWrapper>
+        <SectionWrapper
+          direction={{ md: "row" }}
           sx={{
-            px: 7.25,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: 80,
-            bgcolor: "common.white",
-            fontSize: "24px",
-          }}
-        />
-        <Stack
-          direction={"row"}
-          sx={{
-            height: 92,
             py: 3,
-            px: 8,
-            alignItems: "center",
+            alignItems: { md: "center" },
             justifyContent: "flex-start",
             color: "grey.600",
+            columnGap: 2,
+            rowGap: 2,
           }}
-          spacing={2}
         >
           <Typography variant={"body2"} color={"inherit"}>
             Suggestions
           </Typography>
-          <Stack direction={"row"} spacing={1}>
+          <Stack direction={"row"} flexWrap={"wrap"} columnGap={1} rowGap={1}>
             {suggestions.map((item, index) => {
               return (
                 <Button
@@ -121,13 +129,20 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
                   onClick={() => {
                     setSearchKeyword(item);
                   }}
+                  sx={{
+                    height: {
+                      xs: 34,
+                      md: 39,
+                      xl: 44,
+                    },
+                  }}
                 >
                   {item}
                 </Button>
               );
             })}
           </Stack>
-        </Stack>
+        </SectionWrapper>
       </Drawer>
     </>
   );

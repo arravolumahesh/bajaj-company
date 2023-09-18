@@ -34,7 +34,7 @@ const LanguageToggleButton = (props: LanguageToggleButtonProps) => {
             height: 0.8,
             transform: `translateX(${lang === languages[0] ? -50 : 64}%)`,
             background: alpha(theme.palette.primary.contrastText, 0.4),
-            transition: "all 0.3s ease-in-out",
+            transition: "transform 0.2s ease-in-out",
           },
         }),
         ...sxArrayUtil(sx),
