@@ -101,11 +101,29 @@ const HeroSection = () => {
                 "polygon(75% 0%, 100% 50%, 74% 100%, 0% 100%, 25% 50%, 0 0)",
             }}
           >
-            <MotionImage
+            {/* <MotionImage
               src={Banner}
               alt='Video Banner'
               {...imageTransition}
               fill
+            /> */}
+            <motion.video
+              src={
+                "https://s3-figma-videos-production-sig.figma.com/video/624586955221933605/TEAM/5329/d0dd/-c7d2-4ea0-84ae-05de8da46856?Expires=1696204800&Signature=XCb1S83ao0yMbXPQ9kolPQGGNyNWfgw5lwWg-VZCTS4Q0Mb~LTwtRTtjmoiqmduqQRCYaLxab7uplfiXirj27B~Vf9V2Cfb25W8PUOVbkfctz3XgrDrb6ICa8KVExLUtMN0-phAtm46CVmcrGLIyfIFVGBungLgVQPzyUDRPc4JWF9P0WWQhoyRPWPRrssdCmgnkdGuFAxTeexQ~10xgkZ14vMOhZB0eb2rcBrTwd1wxfrRwBI-13QIodGTUguTWD3yXEo9ujgC~gzqylVpDtc0wJKwIGsU4ALi8r7~K2YJbUfvycsLdfl6bKyPEwWX6dOKKJVJ~9vf8C6u6tHyBWg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              }
+              autoPlay
+              muted
+              loop
+              initial={imageTransition.initial}
+              animate={imageTransition.animate}
+              style={{
+                transform: "translateX(-100%)",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                clipPath:
+                  "polygon(75% 0%, 100% 50%, 74% 100%, 0% 100%, 25% 50%, 0 0)",
+              }}
             />
           </Box>
         </Stack>
@@ -130,7 +148,7 @@ const imageTransition: Omit<
     x: 0,
     transition: {
       duration: 0.8,
-      delay: 0.2,
+      delay: 0.4, //0.2 for image
     },
   },
 };
