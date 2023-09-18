@@ -14,7 +14,6 @@ const NavigationActions = (props: NavigationActionsProps) => {
   const { routes } = props;
   const [isNavDrawer, setNavDrawer] = useState(false);
   const isXl = useMediaQuery<Theme>((theme) => theme.breakpoints.up("xl"));
-  const isSm = useMediaQuery<Theme>((theme) => theme.breakpoints.up("sm"));
   return (
     <Stack
       direction={"row"}
@@ -44,19 +43,21 @@ const NavigationActions = (props: NavigationActionsProps) => {
           },
         }}
       />
-      <NavigationDrawer
-        routes={routes}
-        sx={[
-          ...sxArrayUtil(navigationActionBtnSx),
-          {
-            display: {
-              xs: "flex",
-              xl: "none",
+      {!isXl && (
+        <NavigationDrawer
+          routes={routes}
+          sx={[
+            ...sxArrayUtil(navigationActionBtnSx),
+            {
+              display: {
+                xs: "flex",
+                xl: "none",
+              },
             },
-          },
-        ]}
-        onToggle={setNavDrawer}
-      />
+          ]}
+          onToggle={setNavDrawer}
+        />
+      )}
     </Stack>
   );
 };

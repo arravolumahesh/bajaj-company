@@ -19,7 +19,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Fragment, useState } from "react";
-import { HeaderProps } from "@/layout/header";
+import { appbarHeight, HeaderProps } from "@/layout/header";
 import MLink, { MLinkProps } from "@cc/m-link";
 import { ColorPartial } from "@mui/material/styles/createPalette";
 
@@ -30,8 +30,8 @@ export interface NavigationDrawerProps
 }
 
 const NavigationDrawer = (props: NavigationDrawerProps) => {
-    const { sx, routes, onToggle, ...restIconButtonProps } = props;
-    const [isDrawer, setIsDrawer] = useState(false);
+  const { sx, routes, onToggle, ...restIconButtonProps } = props;
+  const [isDrawer, setIsDrawer] = useState(false);
   return (
     <>
       <IconButton
@@ -59,7 +59,7 @@ const NavigationDrawer = (props: NavigationDrawerProps) => {
         anchor={"right"}
         PaperProps={{
           sx: (theme) => ({
-            mt: "120px",
+            mt: appbarHeight,
             minWidth: 280,
             width: { xs: "100%", sm: 390 },
             backgroundImage: `linear-gradient(0deg, ${

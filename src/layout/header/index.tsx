@@ -4,6 +4,8 @@ import Logo from "@cc/logo";
 import SectionWrapper from "@cc/section-wrapper";
 import Navigation from "@/layout/header/navigation";
 import { MLinkProps } from "@cc/m-link";
+import { Property } from "csstype";
+import { ResponsiveStyleValue } from "@mui/system";
 
 export interface HeaderProps {
   routes: {
@@ -52,3 +54,7 @@ const appbarSx: SxProps<Theme> = (theme) => {
     zIndex: theme.zIndex.drawer + 1,
   };
 };
+
+export const appbarHeight: ResponsiveStyleValue<
+  Property.Height<string | number>
+> = { xs: "64px", md: "92px", xl: "120px" };
