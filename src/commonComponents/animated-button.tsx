@@ -3,8 +3,8 @@ import { SxProps, Theme } from "@mui/material";
 import { motion } from "framer-motion";
 import { ComponentProps, useMemo, useState } from "react";
 import MLink from "@cc/m-link";
+import { MotionButton } from "./motionElements";
 
-const MotionButton = motion(MLink);
 type MotionButtonProps = ComponentProps<typeof MotionButton>;
 
 interface AnimatedButtonProps extends MotionButtonProps {}
