@@ -9,12 +9,10 @@ import {helvetica} from "app/font";
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */
-export const ButtonVariants: Components<
-    Omit<Theme, "components">
->["MuiButton"] = {
+export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] = {
   styleOverrides: {
-    root: ({ownerState, theme}) => {
-      const {sx: style} = ownerState;
+    root: ({ ownerState, theme }) => {
+      const { sx: style } = ownerState;
       return theme.unstable_sx([
         {
           ...helvetica.style,
@@ -22,7 +20,7 @@ export const ButtonVariants: Components<
           whiteSpace: "nowrap",
           lineHeight: "150%",
           fontWeight: 500,
-          fontSize: {xs: "16px"},
+          fontSize: { xs: "16px" },
           textRendering: "optimizeSpeed",
           letterSpacing: "normal",
           height: "inherit",
@@ -30,11 +28,12 @@ export const ButtonVariants: Components<
           minWidth: "fit-content",
           paddingInline: 2,
           paddingBlock: 1,
+          borderRadius: 0,
         },
         ...(Array.isArray(style) ? style : [style]),
       ]);
     },
-    startIcon: ({theme}) => {
+    startIcon: ({ theme }) => {
       return theme.unstable_sx({
         // mr: { xs: '0.3rem', sm: '0.3rem', lg: '0.3rem' },
         "& > :nth-of-type(1)": {
@@ -44,7 +43,7 @@ export const ButtonVariants: Components<
         },
       });
     },
-    endIcon: ({theme}) => {
+    endIcon: ({ theme }) => {
       return theme.unstable_sx({
         // ml: { xs: '0.3rem', sm: '0.3rem', lg: '0.3rem' },
         "& > :nth-of-type(1)": {
@@ -54,26 +53,26 @@ export const ButtonVariants: Components<
         },
       });
     },
-    contained: ({ownerState, theme}) => {
-      const {color} = ownerState;
-      const {palette} = theme;
+    contained: ({ ownerState, theme }) => {
+      const { color } = ownerState;
+      const { palette } = theme;
       return theme.unstable_sx([
         {
           "&.Mui-disabled": {
             color:
-                color === "inherit" || !color
-                    ? "inherit"
-                    : palette[color].contrastText,
+              color === "inherit" || !color
+                ? "inherit"
+                : palette[color].contrastText,
             backgroundColor:
-                color === "inherit" || !color ? "inherit" : palette[color].dark,
+              color === "inherit" || !color ? "inherit" : palette[color].dark,
             opacity: 0.4,
           },
         },
       ]);
     },
-    text: ({ownerState, theme}) => {
-      const {disableRipple, color} = ownerState;
-      const {palette} = theme;
+    text: ({ ownerState, theme }) => {
+      const { disableRipple, color } = ownerState;
+      const { palette } = theme;
       return theme.unstable_sx([
         {
           padding: disableRipple ? 0 : "0.625rem 1.5rem",
@@ -88,28 +87,30 @@ export const ButtonVariants: Components<
         {
           "&.Mui-disabled": {
             color:
-                color === "inherit" || !color ? "inherit" : palette[color].main,
+              color === "inherit" || !color ? "inherit" : palette[color].main,
             backgroundColor: "transparent",
             opacity: 0.4,
           },
         },
       ]);
     },
-    outlined: ({ownerState, theme}) => {
-      const {color} = ownerState;
-      const {palette} = theme;
+    outlined: ({ ownerState, theme }) => {
+      const { color } = ownerState;
+      const { palette } = theme;
       return theme.unstable_sx([
         {
           color: color === "inherit" || !color ? "white" : palette[color].main,
           overflow: "hidden",
+          borderColor:
+            color === "inherit" || !color ? "inherit" : palette[color].main,
         },
         {
           "&.Mui-disabled": {
             color:
-                color === "inherit" || !color ? "inherit" : palette[color].main,
+              color === "inherit" || !color ? "inherit" : palette[color].main,
             backgroundColor: "transparent",
             borderColor:
-                color === "inherit" || !color ? "inherit" : palette[color].main,
+              color === "inherit" || !color ? "inherit" : palette[color].main,
             opacity: 0.4,
           },
         },
