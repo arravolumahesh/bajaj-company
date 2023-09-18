@@ -1,20 +1,20 @@
 "use client";
-import {Card, CardContent, CardMedia, Typography} from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import React from "react";
 
 export type TextContentCardProps = {
-    data: {
-        img?: string;
-        title: string;
-        description: string;
-    };
+  data: {
+    img?: string;
+    title: string;
+    description: string;
+  };
 };
 
 const data = {
-    img: "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
-    title: "EMISSIONS",
-    description:
-        "Emissions produced by our automobiles has reduced by 55% compared to 2009.",
+  img: "https://www.industrialempathy.com/img/remote/ZiClJf-1920w.jpg",
+  title: "EMISSIONS",
+  description:
+    "Emissions produced by our automobiles have reduced by 55% compared to 2009.",
 };
 
 export const TextContentCard = (props: TextContentCardProps) => {
