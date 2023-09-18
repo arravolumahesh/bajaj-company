@@ -1,6 +1,7 @@
 import { alpha, IconButton, Stack, SxProps, Theme } from "@mui/material";
 import { MenuRounded, SearchRounded } from "@mui/icons-material";
 import LanguageToggleButton from "@/layout/header/navigation/language-toggle-button";
+import { sxArrayUtil } from "@util/sx-helpers";
 
 const NavigationActions = () => {
   return (
@@ -13,13 +14,29 @@ const NavigationActions = () => {
       }}
       height={"inherit"}
     >
-      <IconButton sx={navigationActionBtnSx}>
+      <IconButton sx={[...sxArrayUtil(navigationActionBtnSx)]}>
         <SearchRounded />
       </IconButton>
-      <IconButton sx={navigationActionBtnSx}>
+      <IconButton
+        sx={[
+          ...sxArrayUtil(navigationActionBtnSx),
+          {
+            display: {
+              lg: "none",
+            },
+          },
+        ]}
+      >
         <MenuRounded />
       </IconButton>
-      <LanguageToggleButton />
+      <LanguageToggleButton
+        sx={{
+          display: {
+            xs: "none",
+            lg: "flex",
+          },
+        }}
+      />
     </Stack>
   );
 };
