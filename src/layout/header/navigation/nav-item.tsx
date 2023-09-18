@@ -84,12 +84,6 @@ const NavItem = (props: NavItemProps) => {
               py: 1.5,
             },
           }}
-          BackdropProps={{
-            sx: {
-              backdropFilter: "blur(0px)",
-              background: "transparent",
-            },
-          }}
         >
           {children.map((child, index) => {
             const { title } = child;
