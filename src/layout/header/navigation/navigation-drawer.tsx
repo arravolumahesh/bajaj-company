@@ -26,17 +26,24 @@ import { ColorPartial } from "@mui/material/styles/createPalette";
 export interface NavigationDrawerProps
   extends Omit<IconButtonProps, "children"> {
   routes: HeaderProps["routes"];
+  onToggle?: (isDrawer: boolean) => void;
 }
 
 const NavigationDrawer = (props: NavigationDrawerProps) => {
-  const { sx, routes, ...restIconButtonProps } = props;
-  const [isDrawer, setIsDrawer] = useState(false);
+    const { sx, routes, onToggle, ...restIconButtonProps } = props;
+    const [isDrawer, setIsDrawer] = useState(false);
   return (
     <>
       <IconButton
         sx={[...sxArrayUtil(sx)]}
         onClick={() => {
-          setIsDrawer(!isDrawer);
+          if (isDrawer) {
+            setIsDrawer(false);
+            onToggle && onToggle(false);
+          } else {
+            setIsDrawer(true);
+            onToggle && onToggle(true);
+          }
         }}
         {...restIconButtonProps}
       >
@@ -47,14 +54,14 @@ const NavigationDrawer = (props: NavigationDrawerProps) => {
         variant={"temporary"}
         onClose={() => {
           setIsDrawer(false);
+          onToggle && onToggle(false);
         }}
         anchor={"right"}
         PaperProps={{
           sx: (theme) => ({
             mt: "120px",
             minWidth: 280,
-            width: "100%",
-            maxWidth: 390,
+            width: { xs: "100%", sm: 390 },
             backgroundImage: `linear-gradient(0deg, ${
               (theme.palette.secondary as ColorPartial)["A700"]
             } 35.16%, ${(theme.palette.primary as ColorPartial)["900"]} 100%)`,

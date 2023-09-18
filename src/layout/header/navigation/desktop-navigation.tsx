@@ -8,11 +8,16 @@ interface DesktopNavigationProps {
 
 const DesktopNavigation = (props: DesktopNavigationProps) => {
   const { routes } = props;
+
   return (
     <ButtonGroup
       variant={"outlined"}
       sx={{
         height: "inherit",
+        display: {
+          xs: "none",
+          xl: "flex",
+        },
       }}
     >
       {routes.map((route, index) => {
