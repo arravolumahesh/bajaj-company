@@ -13,9 +13,9 @@ export const PaletteTheme = (
   return {
     mode: mode,
     primary: {
-      main: "#326CCF",
+      main: "#326CCF", // Got form design
       light: "#e3f2fd",
-      dark: "#005dab",
+      dark: "#005dab", // Got form design
       50: "#e3f2fd",
       100: "#bbdefb",
       200: "#90caf9",
@@ -25,11 +25,11 @@ export const PaletteTheme = (
       600: "#1e88e5",
       700: "#1976d2",
       800: "#1565c0",
-      900: "#0d47a1",
+      900: "#244A8F",
       A100: "#82b1ff",
       A200: "#448aff",
       A400: "#2979ff",
-      A700: "#2962ff",
+      A700: "#2962ff", // Got form design
       contrastText: "#fff",
     },
     secondary: {
@@ -49,7 +49,7 @@ export const PaletteTheme = (
       A100: "#0c1220",
       A200: "#0d1423",
       A400: "#0e1626",
-      A700: "#0f1829",
+      A700: "#0f182A", // Got form design
       contrastText: "#fff",
     },
     success: {

@@ -1,10 +1,15 @@
-import { alpha, IconButton, Stack, SxProps, Theme } from "@mui/material";
-import { MenuRounded } from "@mui/icons-material";
+import { alpha, Stack, SxProps, Theme } from "@mui/material";
 import LanguageToggleButton from "@/layout/header/navigation/language-toggle-button";
-import { sxArrayUtil } from "@util/sx-helpers";
 import SearchDrawerToggler from "@/layout/header/navigation/search-drawer";
+import { HeaderProps } from "@/layout/header";
+import NavigationDrawer from "@/layout/header/navigation/navigation-drawer";
 
-const NavigationActions = () => {
+export interface NavigationActionsProps {
+  routes: HeaderProps["routes"];
+}
+
+const NavigationActions = (props: NavigationActionsProps) => {
+  const { routes } = props;
   return (
     <Stack
       direction={"row"}
@@ -16,18 +21,7 @@ const NavigationActions = () => {
       height={"inherit"}
     >
       <SearchDrawerToggler sx={navigationActionBtnSx} />
-      <IconButton
-        sx={[
-          ...sxArrayUtil(navigationActionBtnSx),
-          {
-            display: {
-              lg: "none",
-            },
-          },
-        ]}
-      >
-        <MenuRounded />
-      </IconButton>
+      <NavigationDrawer routes={routes} sx={navigationActionBtnSx} />
       <LanguageToggleButton
         sx={{
           display: {

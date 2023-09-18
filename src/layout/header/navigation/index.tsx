@@ -12,8 +12,12 @@ const Navigation = (props: NavigationProps) => {
   const { routes, sx, ...restStackProps } = props;
   return (
     <Stack sx={[navigationStackSx, ...sxArrayUtil(sx)]} {...restStackProps}>
-      {routes && <DesktopNavigation routes={routes} />}
-      <NavigationActions />
+      {routes && (
+        <>
+          <DesktopNavigation routes={routes} />
+          <NavigationActions routes={routes} />
+        </>
+      )}
     </Stack>
   );
 };
