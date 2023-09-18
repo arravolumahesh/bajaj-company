@@ -1,11 +1,15 @@
 "use client";
 import AnimatedButton from "@/commonComponents/animated-button";
-import { Box, Slide, Stack, Typography } from "@mui/material";
+import { Box, Slide, Stack } from "@mui/material";
 import Image from "next/image";
-import React, { useState, useEffect, useRef, ComponentProps } from "react";
+import React, { useState, useEffect, ComponentProps } from "react";
 import BajajLogo from "./images/Graphics.svg";
 import Banner from "./images/Group 427321830.svg";
 import { MotionProps, motion } from "framer-motion";
+import {
+  MotionImage,
+  MotionTypography,
+} from "@/commonComponents/motionElements";
 
 const HeroSection = () => {
   const [logoAnimate, setLogoAnimate] = useState(false);
@@ -111,10 +115,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-const MotionImage = motion(Image);
-
-const MotionTypography = motion(Typography);
 
 const imageTransition: Omit<
   ComponentProps<typeof MotionImage>,
