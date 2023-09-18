@@ -16,7 +16,7 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
   const { routes } = props;
   return (
-    <AppBar sx={appbarSx} elevation={0}>
+    <AppBar sx={appbarSx} elevation={0} position={"relative"}>
       <SectionWrapper direction={"row"} alignItems={"center"}>
         <Logo />
         <Navigation

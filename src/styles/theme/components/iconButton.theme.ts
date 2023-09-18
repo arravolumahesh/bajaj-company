@@ -15,10 +15,10 @@ export const IconButtonVariants: Components<
         root: ({ownerState, theme}) => {
             const {sx} = ownerState;
             return theme.unstable_sx([
-                {
-                    borderRadius: 1,
-                },
-                ...(Array.isArray(sx) ? sx : [sx]),
+              {
+                borderRadius: 0,
+              },
+              ...(Array.isArray(sx) ? sx : [sx]),
             ]);
         },
     },

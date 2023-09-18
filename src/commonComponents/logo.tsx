@@ -1,10 +1,10 @@
-import Link, { LinkProps } from "next/link";
+import MLink, { MLinkProps } from "@cc/m-link";
 
-interface LogoProps extends Partial<LinkProps> {}
+interface LogoProps extends Partial<MLinkProps> {}
 
 const Logo = (props: LogoProps) => {
   return (
-    <Link href={"/"} {...props}>
+    <MLink href={"/"} disableRipple {...props}>
       <svg
         width="107"
         height="64"
@@ -59,7 +59,7 @@ const Logo = (props: LogoProps) => {
           </clipPath>
         </defs>
       </svg>
-    </Link>
+    </MLink>
   );
 };
 

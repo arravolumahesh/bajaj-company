@@ -1,5 +1,6 @@
 "use client";
 import {
+  alpha,
   Button,
   ButtonProps,
   ListItemSecondaryAction,
@@ -44,12 +45,15 @@ const NavItem = (props: NavItemProps) => {
       onClick: handleClick,
       children: title,
       sx: [
-        {
-          color: "primary.contrastText",
+        (theme: Theme) => ({
+          color: alpha(theme.palette.primary.contrastText, 0.8),
           borderRadius: 0,
-          background: (theme: Theme) =>
-            anchorEl ? theme.palette.background.paper : "transparent",
-        },
+          borderColor: alpha(theme.palette.primary.contrastText, 0.3),
+          background: anchorEl ? theme.palette.background.paper : "transparent",
+          "&:hover": {
+            background: alpha(theme.palette.background.paper, 0.5),
+          },
+        }),
         ...sxArrayUtil(sx),
       ],
     };

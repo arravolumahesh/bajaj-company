@@ -9,7 +9,12 @@ interface DesktopNavigationProps {
 const DesktopNavigation = (props: DesktopNavigationProps) => {
   const { routes } = props;
   return (
-    <ButtonGroup variant={"outlined"}>
+    <ButtonGroup
+      variant={"outlined"}
+      sx={{
+        height: "inherit",
+      }}
+    >
       {routes.map((route, index) => {
         route.title = route.title.toUpperCase();
         return (
