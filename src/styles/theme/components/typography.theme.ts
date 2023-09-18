@@ -21,9 +21,11 @@ export const TypographyTheme: ThemeOptions['typography'] = {
 };
 
 /**
- * @ComponentsVariants['MuiTypography']
+ * @TyporaphyVariants['MuiTypography']
  *
  * Here we can define the typography Variants
+ *
+ * The variants are used to override the default styles of the Typography component
  *
  * @see https://material-ui.com/customization/typography
  */

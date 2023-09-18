@@ -5,7 +5,7 @@ import {helvetica} from 'app/font';
  * @Mui Baseline
  * Here we can define the cssBaseline theme
  *
- * The cssBaseline theme is used to set the global styles of the theme
+ * The cssBaseline theme is used to set the global styles of the CssBaseline component
  *
  * @see https://mui.com/material-ui/react-css-baseline
  */

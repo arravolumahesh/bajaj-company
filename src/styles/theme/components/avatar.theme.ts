@@ -4,7 +4,7 @@ import {Components, Theme} from '@mui/material';
  * @AvatarVariants
  * Here we can define the variants, defaultProps and styleOverrides
  *
- * The variants are used to override the default styles of the Link component
+ * The variants are used to override the default styles of the Avatar component
  *
  * @see https://mui.com/material-ui/react-avatar
  */

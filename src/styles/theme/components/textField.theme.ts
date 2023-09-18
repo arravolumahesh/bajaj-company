@@ -4,7 +4,7 @@ import {alpha, Components, Theme} from '@mui/material';
  * @TextFieldVariants
  * Here we can define the variants, defaultProps and styleOverrides
  *
- * The variants are used to override the default styles of the button component
+ * The variants are used to override the default styles of the TextField component
  *
  * @see https://mui.com/material-ui/react-text-field/#customization
  */

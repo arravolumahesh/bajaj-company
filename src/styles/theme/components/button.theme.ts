@@ -5,7 +5,7 @@ import {helvetica} from "app/font";
  * @ButtonVariants
  * Here we can define the variants, defaultProps and styleOverrides
  *
- * The variants are used to override the default styles of the button component
+ * The variants are used to override the default styles of the Button component
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */

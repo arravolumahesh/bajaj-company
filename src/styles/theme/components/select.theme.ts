@@ -4,7 +4,7 @@ import {Components, Theme} from '@mui/material';
  * @SelectVariants
  * Here we can define the variants, defaultProps and styleOverrides
  *
- * The variants are used to override the default styles of the button component
+ * The variants are used to override the default styles of the Select component
  *
  * @see https://mui.com/material-ui/react-seslect/#customization
  */

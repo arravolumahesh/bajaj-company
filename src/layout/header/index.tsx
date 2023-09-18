@@ -36,5 +36,7 @@ const appbarSx: SxProps<Theme> = (theme) => {
   return {
     background: theme.palette.gradient.primary,
     color: "primary.contrastText",
+    height: 120,
+    zIndex: theme.zIndex.drawer + 1,
   };
 };
