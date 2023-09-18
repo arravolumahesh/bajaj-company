@@ -1,11 +1,7 @@
 "use client";
 import { SxProps, Theme } from "@mui/material";
-import { motion } from "framer-motion";
-import { ComponentProps, useMemo, useState } from "react";
-import MLink from "@cc/m-link";
-import { MotionButton } from "./motionElements";
-
-type MotionButtonProps = ComponentProps<typeof MotionButton>;
+import { useMemo, useState } from "react";
+import { MotionButton, MotionButtonProps } from "./motionElements";
 
 interface AnimatedButtonProps extends MotionButtonProps {}
 
