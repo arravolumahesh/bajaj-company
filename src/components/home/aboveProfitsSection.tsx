@@ -1,9 +1,10 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import videoImage from "./images/Frame 111142.png";
 import React, { ComponentProps, useState } from "react";
 import { MotionBox, MotionTypography } from "@/commonComponents/motionElements";
+import { PlayArrow, PlayCircle, PlayCircleFilled } from "@mui/icons-material";
 
 const AboveProfitsSection = () => {
   const [textTransition, setTextTransition] = useState(false);
@@ -54,7 +55,7 @@ const AboveProfitsSection = () => {
     },
     transition: {
       duration: 0.5,
-      delay: 0.9,
+      delay: 0.8,
     },
     viewport: {
       once: true,
@@ -86,6 +87,23 @@ const AboveProfitsSection = () => {
           {...videoBannerTransition}
         >
           <Image src={videoImage} alt='Video Thumbnail' fill />
+          <IconButton
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              p: 0,
+            }}
+          >
+            <PlayCircle
+              sx={{
+                width: { xs: 77, md: 100 },
+                height: { xs: 77, md: 100 },
+                fill: "#005DAC",
+              }}
+            />
+          </IconButton>
         </MotionBox>
         <MotionTypography
           variant='h6'
