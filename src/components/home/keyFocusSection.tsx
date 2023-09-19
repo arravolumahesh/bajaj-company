@@ -13,6 +13,7 @@ import skillImage from "./images/Rectangle 24993.png";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
+import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
 
 const KeyFocusSection = () => {
   const theme = useTheme();
@@ -94,7 +95,7 @@ const KeyFocusSection = () => {
         direction='row'
         alignItems={"center"}
       >
-        {data.map((item, idx) => (
+        {/* {data.map((item, idx) => (
           <SmallTitleCard
             key={idx}
             data={item}
@@ -102,7 +103,24 @@ const KeyFocusSection = () => {
             component={motion.div}
             variants={staggerCardChildren}
           />
-        ))}
+        ))} */}
+        <EnhancedSwiper
+          slidesPerView={"auto"}
+          SlideWrapperProps={{
+            sx: {
+              width: { xs: 200, lg: 316 },
+              mr: { xs: 2, lg: 0 },
+            },
+          }}
+          sx={{ m: 0 }}
+          SlideComponent={SmallTitleCard}
+          data={data}
+          SlideComponentProps={{
+            sx: { backgroundPosition: "center" },
+            component: motion.div,
+            variants: { staggerCardChildren },
+          }}
+        />
       </Stack>
     </Stack>
   );
