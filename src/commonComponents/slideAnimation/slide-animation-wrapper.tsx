@@ -40,13 +40,14 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         direction='row'
         alignItems={"center"}
         //   justifyContent={"center"}
-        //   width={{ xs: 1, md: 354, lg: 528, large: 651 }}
+        width={{ xs: 1, md: "auto" }}
       >
         <MotionBox
           sx={{
             position: "relative",
-            width: { xs: 255, md: 255, lg: 644, large: 644 },
-            height: { xs: 277, md: 300, lg: 443, large: 443 },
+            width: { xs: "90%", md: 320, lg: 441, xl: 644, large: 644 },
+            height: { xs: "auto", md: 254, lg: 315, xl: 443, large: 443 },
+            aspectRatio: 1.25,
             clipPath: "polygon(0% 0%, 84% 0%, 100% 50%, 84% 100%, 0% 100%)",
           }}
           {...boxTransition}
@@ -56,9 +57,10 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         <Box
           sx={{
             position: "relative",
-            ml: { xs: "-80px", lg: "-85px" },
-            width: { xs: 111, md: 117, lg: 171, large: 171 },
-            height: { xs: 350, md: 350, lg: 443, large: 443 },
+            ml: { xs: "-10%", md: "-43px", lg: "-62px", xl: "-85px" },
+            width: { xs: "20%", md: 83, lg: 120, xl: 171, large: 171 },
+            height: { xs: "auto", md: 254, lg: 315, xl: 443, large: 443 },
+            aspectRatio: 0.32,
           }}
         >
           <MotionImage
@@ -75,8 +77,8 @@ const SlideAnimationWrapper = (props: SlideAnimationWrapper) => {
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
-        maxWidth={448}
-        rowGap={3}
+        maxWidth={{ xs: 1, md: 350, lg: 448 }}
+        rowGap={{ xs: 2, md: 3 }}
       >
         {prefix && (
           <MotionTypography

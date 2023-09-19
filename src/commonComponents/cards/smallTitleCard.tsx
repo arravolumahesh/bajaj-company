@@ -1,20 +1,14 @@
-import {
-  Card,
-  CardContent,
-  CardProps,
-  SxProps,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardProps, Typography } from "@mui/material";
 import React from "react";
+import { MotionVariantProps } from "../motion-elements";
 
 type SmallTitleCardProps = {
   data: {
     img: string;
     title: string;
   };
-  sx?: SxProps;
-  restProps?: CardProps;
-};
+  variants: MotionVariantProps;
+} & CardProps;
 
 export const SmallTitleCard = (props: SmallTitleCardProps) => {
   const { sx, ...restProps } = props;
@@ -24,8 +18,8 @@ export const SmallTitleCard = (props: SmallTitleCardProps) => {
       sx={{
         display: "flex",
         position: "relative",
-        width: 328,
-        height: 316,
+        width: { xs: 200, md: 328 },
+        height: { xs: 200, md: 316 },
         background: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.00) 34.18%), url(${img}), lightgray -133.577px -1.973px / 181.45% 101.249% no-repeat`,
         backgroundSize: "cover",
         borderRadius: 0,

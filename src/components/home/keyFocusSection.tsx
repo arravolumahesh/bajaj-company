@@ -5,7 +5,7 @@ import {
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-elements";
-import { Stack } from "@mui/material";
+import { Stack, useMediaQuery, useTheme } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import Arrow from "./images/Group 427321806.svg";
@@ -15,27 +15,34 @@ import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 
 const KeyFocusSection = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Stack
       bgcolor={"white"}
-      pt={4}
-      pb={8}
-      px={9}
-      rowGap={8}
+      pt={{ xs: 7, md: 4 }}
+      pb={{ xs: 7, md: 8 }}
+      px={{ xs: 3, md: 9 }}
+      rowGap={{ xs: 6, md: 8 }}
       overflow={"hidden"}
     >
-      <Stack direction={"row"} alignItems={"center"} columnGap={4} pl={9}>
-        <MotionImage src={Arrow} alt='' {...imageTransition} />
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        columnGap={4}
+        pl={{ xs: 0, md: "5.5%" }}
+      >
+        <MotionImage src={Arrow} alt='' {...imageTransition} hidden={matches} />
         <Stack
           component={motion.div}
           variants={staggerDiv}
           initial={"initial"}
           whileInView={"animate"}
           viewport={{ once: true }}
-          maxWidth={814}
+          maxWidth={{ xs: "100%", md: 814 }}
           rowGap={4}
         >
-          <Stack maxWidth={814} rowGap={4}>
+          <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
               variant='h1'
               fontWeight={400}
@@ -59,7 +66,8 @@ const KeyFocusSection = () => {
         </Stack>
       </Stack>
       <Stack
-        direction={"row"}
+        direction={{ xs: "column", md: "row" }}
+        rowGap={3}
         justifyContent={"space-between"}
         alignItems={"center"}
       >
