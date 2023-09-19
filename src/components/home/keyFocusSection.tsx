@@ -7,13 +7,13 @@ import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import React, { ComponentProps } from "react";
 import Arrow from "./images/Group 427321806.svg";
-import BigArrow from "./images/Group 427321826.svg";
 import skillImage from "./images/Rectangle 24993.png";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { MotionProps, motion } from "framer-motion";
+import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 
-const KeyFoxusSection = () => {
+const KeyFocusSection = () => {
   return (
     <Stack bgcolor={"white"} pt={4} pb={8} px={9} rowGap={8}>
       <Stack direction={"row"} alignItems={"center"} columnGap={4} pl={9}>
@@ -55,63 +55,14 @@ const KeyFoxusSection = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Stack
-          direction='row'
-          alignItems={"center"}
-          //   justifyContent={"center"}
-          //   width={{ xs: 1, md: 354, lg: 528, large: 651 }}
-        >
-          <Box
-            sx={{
-              position: "relative",
-              width: { xs: 255, md: 255, lg: 644, large: 644 },
-              height: { xs: 277, md: 300, lg: 443, large: 443 },
-              clipPath: "polygon(0% 0%, 84% 0%, 100% 50%, 84% 100%, 0% 100%)",
-            }}
-          >
-            <MotionImage
-              src={skillImage}
-              alt='Skill Banner'
-              //   {...imageTransition}
-              fill
-            />
-          </Box>
-          <Box
-            sx={{
-              position: "relative",
-              ml: { xs: "-80px", lg: "-85px" },
-              width: { xs: 111, md: 117, lg: 171, large: 171 },
-              height: { xs: 350, md: 350, lg: 443, large: 443 },
-            }}
-          >
-            <Image src={BigArrow} alt='Bajaj Beyond Logo' fill />
-          </Box>
-        </Stack>
-        <Stack maxWidth={448} rowGap={3}>
-          <MotionTypography
-            variant='h3'
-            fontWeight={400}
-            color={"primary.dark"}
-          >
-            SKILL DEVELOPEMENT
-          </MotionTypography>
-          <MotionTypography variant='body1' color='primary.dark'>
-            Providing skill-based education through various programs to
-            strengthen the foundation of a progressive nation.
-          </MotionTypography>
-          <AnimatedButton
-            variant='outlined'
-            href={"/"}
-            color='primary'
-            sx={{
-              width: { xs: "100%", md: "171px" },
-              fontSize: { xs: "18px", md: "24px !important" },
-              borderColor: "primary.dark",
-            }}
-          >
-            Learn More
-          </AnimatedButton>
-        </Stack>
+        <SlideAnimationWrapper>
+          <MotionImage
+            src={skillImage}
+            alt='Skill Banner'
+            //   {...imageTransition}
+            fill
+          />
+        </SlideAnimationWrapper>
       </Stack>
       <Stack direction='row' alignItems={"center"}>
         {data.map((item, idx) => (
@@ -126,7 +77,7 @@ const KeyFoxusSection = () => {
   );
 };
 
-export default KeyFoxusSection;
+export default KeyFocusSection;
 
 const imageTransition: Omit<
   ComponentProps<typeof MotionImage>,
