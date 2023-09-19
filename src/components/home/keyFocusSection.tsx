@@ -1,21 +1,29 @@
 "use client";
 import {
   MotionImage,
+  MotionImageProps,
   MotionTypography,
+  MotionVariantProps,
 } from "@/commonComponents/motion-elements";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import Image from "next/image";
-import React, { ComponentProps } from "react";
+import React from "react";
 import Arrow from "./images/Group 427321806.svg";
 import skillImage from "./images/Rectangle 24993.png";
-import AnimatedButton from "@/commonComponents/animated-button";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
-import { MotionProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 
 const KeyFocusSection = () => {
   return (
-    <Stack bgcolor={"white"} pt={4} pb={8} px={9} rowGap={8}>
+    <Stack
+      bgcolor={"white"}
+      pt={4}
+      pb={8}
+      px={9}
+      rowGap={8}
+      overflow={"hidden"}
+    >
       <Stack direction={"row"} alignItems={"center"} columnGap={4} pl={9}>
         <MotionImage src={Arrow} alt='' {...imageTransition} />
         <Stack
@@ -55,8 +63,13 @@ const KeyFocusSection = () => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <SlideAnimationWrapper>
-          <MotionImage
+        <SlideAnimationWrapper
+          title={"SKILL DEVELOPEMENT"}
+          subtitle='Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation.'
+          textColor='primary.dark'
+        >
+          <Image
             src={skillImage}
             alt='Skill Banner'
             //   {...imageTransition}
@@ -64,12 +77,22 @@ const KeyFocusSection = () => {
           />
         </SlideAnimationWrapper>
       </Stack>
-      <Stack direction='row' alignItems={"center"}>
+      <Stack
+        component={motion.div}
+        variants={staggerCards}
+        initial={"initial"}
+        whileInView={"animate"}
+        viewport={{ once: true }}
+        direction='row'
+        alignItems={"center"}
+      >
         {data.map((item, idx) => (
           <SmallTitleCard
             key={idx}
             data={item}
             sx={{ backgroundPosition: "center" }}
+            component={motion.div}
+            variants={staggerCardChildren}
           />
         ))}
       </Stack>
@@ -79,10 +102,7 @@ const KeyFocusSection = () => {
 
 export default KeyFocusSection;
 
-const imageTransition: Omit<
-  ComponentProps<typeof MotionImage>,
-  "src" | "alt"
-> = {
+const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   initial: {
     x: "-210%",
   },
@@ -98,7 +118,7 @@ const imageTransition: Omit<
   },
 };
 
-const staggerDiv: MotionProps["variants"] = {
+const staggerDiv: MotionVariantProps = {
   initial: {},
   animate: {
     transition: {
@@ -107,10 +127,34 @@ const staggerDiv: MotionProps["variants"] = {
     },
   },
 };
-const staggerChildren: MotionProps["variants"] = {
+const staggerChildren: MotionVariantProps = {
   initial: {
     opacity: 0,
     y: "150%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+    },
+  },
+};
+
+const staggerCards: MotionVariantProps = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.4,
+      delayChildren: 0.5,
+    },
+  },
+};
+
+const staggerCardChildren: MotionVariantProps = {
+  initial: {
+    opacity: 0,
+    y: "70%",
   },
   animate: {
     opacity: 1,

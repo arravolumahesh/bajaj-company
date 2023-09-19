@@ -1,4 +1,10 @@
-import { Card, CardContent, SxProps, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardProps,
+  SxProps,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
 type SmallTitleCardProps = {
@@ -7,10 +13,11 @@ type SmallTitleCardProps = {
     title: string;
   };
   sx?: SxProps;
+  restProps?: CardProps;
 };
 
 export const SmallTitleCard = (props: SmallTitleCardProps) => {
-  const { sx } = props;
+  const { sx, ...restProps } = props;
   const { img, title } = props.data;
   return (
     <Card
@@ -24,6 +31,7 @@ export const SmallTitleCard = (props: SmallTitleCardProps) => {
         borderRadius: 0,
         ...sx,
       }}
+      {...restProps}
     >
       <CardContent
         sx={{

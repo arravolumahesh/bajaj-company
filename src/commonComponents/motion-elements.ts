@@ -1,6 +1,6 @@
 "use client";
 import { Box, Typography } from "@mui/material";
-import { motion } from "framer-motion";
+import { MotionProps, motion } from "framer-motion";
 import Image from "next/image";
 import MLink from "./m-link";
 import { ComponentProps } from "react";
@@ -13,3 +13,4 @@ export const MotionButton = motion(MLink);
 export type MotionButtonProps = ComponentProps<typeof MotionButton>;
 export const MotionBox = motion(Box);
 export type MotionBoxProps = ComponentProps<typeof MotionBox>;
+export type MotionVariantProps = MotionProps["variants"];

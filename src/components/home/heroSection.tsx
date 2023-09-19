@@ -8,6 +8,7 @@ import { motion, MotionProps } from "framer-motion";
 import {
   MotionImageProps,
   MotionTypography,
+  MotionVariantProps,
 } from "@/commonComponents/motion-elements";
 
 const HeroSection = () => {
@@ -37,7 +38,7 @@ const HeroSection = () => {
           animate={"animate"}
         >
           <MotionTypography
-            variant="h1"
+            variant='h1'
             color={"#fff"}
             sx={{ fontWeight: 400, mb: 2 }}
             variants={staggerChildren}
@@ -45,7 +46,7 @@ const HeroSection = () => {
             TURNING POTENTIAL TO PROGRESS
           </MotionTypography>
           <MotionTypography
-            variant="body1"
+            variant='body1'
             color={"#fff"}
             variants={staggerChildren}
           >
@@ -66,13 +67,13 @@ const HeroSection = () => {
           </AnimatedButton>
         </Stack>
         <Stack
-          direction="row"
+          direction='row'
           alignItems={"center"}
           justifyContent={"center"}
           width={{ xs: 1, md: 354, lg: 528, large: 651 }}
         >
           <Slide
-            direction="right"
+            direction='right'
             in={logoAnimate}
             timeout={500}
             easing={{ enter: "cubic-bezier(.13,.47,.02,1)" }}
@@ -86,7 +87,7 @@ const HeroSection = () => {
                 height: { xs: 350, md: 350, lg: 600, large: 700 },
               }}
             >
-              <Image src={BajajLogo} alt="Bajaj Beyond Logo" fill />
+              <Image src={BajajLogo} alt='Bajaj Beyond Logo' fill />
             </Box>
           </Slide>
           <Box
@@ -149,7 +150,7 @@ const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   },
 };
 
-const staggerDiv: MotionProps["variants"] = {
+const staggerDiv: MotionVariantProps = {
   initial: {},
   animate: {
     transition: {
@@ -158,7 +159,7 @@ const staggerDiv: MotionProps["variants"] = {
     },
   },
 };
-const staggerChildren: MotionProps["variants"] = {
+const staggerChildren: MotionVariantProps = {
   initial: {
     opacity: 0,
     y: "30%",
