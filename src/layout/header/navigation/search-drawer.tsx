@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import SectionWrapper from "@cc/section-wrapper";
+import { appbarHeight } from "@/layout/header";
 
 export interface SearchDrawerTogglerProps
   extends Omit<IconButtonProps, "children"> {}
@@ -41,7 +42,7 @@ const SearchDrawerToggler = (props: SearchDrawerTogglerProps) => {
         anchor={"top"}
         PaperProps={{
           sx: (theme) => ({
-            mt: "120px",
+            mt: appbarHeight,
             background: alpha(theme.palette.common.white, 0.96),
           }),
         }}

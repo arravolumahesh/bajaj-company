@@ -1,11 +1,12 @@
 "use client";
-import { AppBar, SxProps, Theme } from "@mui/material";
+import { AppBar, Slide, SxProps, Theme, useScrollTrigger } from "@mui/material";
 import Logo from "@cc/logo";
 import SectionWrapper from "@cc/section-wrapper";
 import Navigation from "@/layout/header/navigation";
 import { MLinkProps } from "@cc/m-link";
 import { Property } from "csstype";
 import { ResponsiveStyleValue } from "@mui/system";
+import { ReactElement } from "react";
 
 export interface HeaderProps {
   routes: {
@@ -18,29 +19,31 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
   const { routes } = props;
   return (
-    <AppBar sx={appbarSx} elevation={0} position={"relative"}>
-      <SectionWrapper
-        direction={"row"}
-        alignItems={"center"}
-        py={0}
-        height={"inherit"}
-      >
-        <Logo
-          SvgIconProps={{
-            sx: {
-              width: { xs: 71, md: 91, xl: 107 },
-              height: { xs: 40, md: 52, xl: 64 },
-            },
-          }}
-        />
-        <Navigation
-          sx={{
-            ml: "auto",
-          }}
-          routes={routes}
-        />
-      </SectionWrapper>
-    </AppBar>
+    <HideOnScroll>
+      <AppBar sx={appbarSx} elevation={0}>
+        <SectionWrapper
+          direction={"row"}
+          alignItems={"center"}
+          py={0}
+          height={"inherit"}
+        >
+          <Logo
+            SvgIconProps={{
+              sx: {
+                width: { xs: 71, md: 91, xl: 107 },
+                height: { xs: 40, md: 52, xl: 64 },
+              },
+            }}
+          />
+          <Navigation
+            sx={{
+              ml: "auto",
+            }}
+            routes={routes}
+          />
+        </SectionWrapper>
+      </AppBar>
+    </HideOnScroll>
   );
 };
 
@@ -58,3 +61,13 @@ const appbarSx: SxProps<Theme> = (theme) => {
 export const appbarHeight: ResponsiveStyleValue<
   Property.Height<string | number>
 > = { xs: "64px", md: "92px", xl: "120px" };
+
+const HideOnScroll = (props: { children: ReactElement }) => {
+  const { children } = props;
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction={"down"} in={!trigger}>
+      {children}
+    </Slide>
+  );
+};

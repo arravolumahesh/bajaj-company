@@ -2,7 +2,7 @@
 import {
   MotionImage,
   MotionTypography,
-} from "@/commonComponents/motionElements";
+} from "@/commonComponents/motion-elements";
 import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import React, { ComponentProps } from "react";
@@ -27,25 +27,27 @@ const KeyFoxusSection = () => {
           maxWidth={814}
           rowGap={4}
         >
-          <MotionTypography
-            variant='h1'
-            fontWeight={400}
-            color={"primary.dark"}
-            variants={staggerChildren}
-          >
-            OUR KEY FOCUS AREAS
-          </MotionTypography>
-          <MotionTypography
-            variant='h5'
-            fontWeight={400}
-            color={"primary.dark"}
-            variants={staggerChildren}
-          >
-            Our CSR initiatives encompass a diverse range of focus areas, with a
-            strong emphasis on skill development. We aim to address social,
-            environmental, and community needs to create a positive and lasting
-            impact.
-          </MotionTypography>
+          <Stack maxWidth={814} rowGap={4}>
+            <MotionTypography
+              variant='h1'
+              fontWeight={400}
+              color={"primary.dark"}
+              variants={staggerChildren}
+            >
+              OUR KEY FOCUS AREAS
+            </MotionTypography>
+            <MotionTypography
+              variant='h5'
+              fontWeight={400}
+              color={"primary.dark"}
+              variants={staggerChildren}
+            >
+              Our CSR initiatives encompass a diverse range of focus areas, with
+              a strong emphasis on skill development. We aim to address social,
+              environmental, and community needs to create a positive and
+              lasting impact.
+            </MotionTypography>
+          </Stack>
         </Stack>
       </Stack>
       <Stack

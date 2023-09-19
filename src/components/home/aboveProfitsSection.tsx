@@ -2,14 +2,19 @@
 import { IconButton, Stack } from "@mui/material";
 import Image from "next/image";
 import videoImage from "./images/Frame 111142.png";
-import React, { ComponentProps, useState } from "react";
-import { MotionBox, MotionTypography } from "@/commonComponents/motionElements";
+import React, { useState } from "react";
+import {
+  MotionBox,
+  MotionBoxProps,
+  MotionTypography,
+  MotionTypographyProps,
+} from "@/commonComponents/motion-elements";
 import { PlayCircle } from "@mui/icons-material";
 
 const AboveProfitsSection = () => {
   const [textTransition, setTextTransition] = useState(false);
 
-  const headerTransition: ComponentProps<typeof MotionTypography> = {
+  const headerTransition: MotionTypographyProps = {
     initial: {
       y: "30%",
       opacity: 0,
@@ -26,7 +31,7 @@ const AboveProfitsSection = () => {
     },
   };
 
-  const videoBannerTransition: ComponentProps<typeof MotionBox> = {
+  const videoBannerTransition: MotionBoxProps = {
     initial: {
       x: "-118%",
       opacity: 0,
@@ -44,7 +49,7 @@ const AboveProfitsSection = () => {
     },
     // onTransitionEnd: () => setTextTransition(true),
   };
-  const descTransition: ComponentProps<typeof MotionTypography> = {
+  const descTransition: MotionTypographyProps = {
     initial: {
       y: "-130%",
       opacity: 0,

@@ -1,4 +1,4 @@
-import {alpha, Components, Theme} from "@mui/material";
+import {Components, Theme} from "@mui/material";
 
 /**
  * @BackdropVariants
@@ -8,13 +8,8 @@ import {alpha, Components, Theme} from "@mui/material";
  *
  * @see https://mui.com/material-ui/react-backdrop/#main-content
  */
-export const BackdropVariants: Components<Omit<Theme, "components">>["MuiBackdrop"] = {
-  styleOverrides: {
-    root: ({ theme }) => {
-      return {
-        backgroundColor: alpha(theme.palette.common.black, 0.7),
-        backdropFilter: "blur(5px)",
-      };
-    },
-  },
+export const BackdropVariants: Components<
+    Omit<Theme, "components">
+>["MuiBackdrop"] = {
+  styleOverrides: {},
 };
