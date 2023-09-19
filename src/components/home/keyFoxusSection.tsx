@@ -1,3 +1,4 @@
+"use client";
 import {
   MotionImage,
   MotionTypography,
@@ -10,17 +11,27 @@ import BigArrow from "./images/Group 427321826.svg";
 import skillImage from "./images/Rectangle 24993.png";
 import AnimatedButton from "@/commonComponents/animated-button";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
+import { MotionProps, motion } from "framer-motion";
 
 const KeyFoxusSection = () => {
   return (
     <Stack bgcolor={"white"} pt={4} pb={8} px={9} rowGap={8}>
       <Stack direction={"row"} alignItems={"center"} columnGap={4} pl={9}>
-        <Image src={Arrow} alt='' />
-        <Stack maxWidth={814} rowGap={4}>
+        <MotionImage src={Arrow} alt='' {...imageTransition} />
+        <Stack
+          component={motion.div}
+          variants={staggerDiv}
+          initial={"initial"}
+          whileInView={"animate"}
+          viewport={{ once: true }}
+          maxWidth={814}
+          rowGap={4}
+        >
           <MotionTypography
             variant='h1'
             fontWeight={400}
             color={"primary.dark"}
+            variants={staggerChildren}
           >
             OUR KEY FOCUS AREAS
           </MotionTypography>
@@ -28,6 +39,7 @@ const KeyFoxusSection = () => {
             variant='h5'
             fontWeight={400}
             color={"primary.dark"}
+            variants={staggerChildren}
           >
             Our CSR initiatives encompass a diverse range of focus areas, with a
             strong emphasis on skill development. We aim to address social,
@@ -118,17 +130,40 @@ const imageTransition: Omit<
   ComponentProps<typeof MotionImage>,
   "src" | "alt"
 > = {
-  style: {
-    transform: "translateX(-100%)",
-  },
   initial: {
-    x: "-100%",
+    x: "-210%",
   },
-  animate: {
+  whileInView: {
     x: 0,
     transition: {
-      duration: 0.8,
-      delay: 0.4, //0.2 for image
+      duration: 0.4,
+      ease: "easeOut",
+    },
+  },
+  viewport: {
+    once: true,
+  },
+};
+
+const staggerDiv: MotionProps["variants"] = {
+  initial: {},
+  animate: {
+    transition: {
+      staggerChildren: 0.4,
+      delayChildren: 0.5,
+    },
+  },
+};
+const staggerChildren: MotionProps["variants"] = {
+  initial: {
+    opacity: 0,
+    y: "150%",
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
     },
   },
 };
