@@ -1,7 +1,7 @@
 import {
   MotionImage,
   MotionTypography,
-} from "@/commonComponents/motionElements";
+} from "@/commonComponents/motion-elements";
 import { Box, Stack } from "@mui/material";
 import Image from "next/image";
 import React, { ComponentProps } from "react";
@@ -15,17 +15,17 @@ const KeyFoxusSection = () => {
   return (
     <Stack bgcolor={"white"} pt={4} pb={8} px={9} rowGap={8}>
       <Stack direction={"row"} alignItems={"center"} columnGap={4} pl={9}>
-        <Image src={Arrow} alt='' />
+        <Image src={Arrow} alt="" />
         <Stack maxWidth={814} rowGap={4}>
           <MotionTypography
-            variant='h1'
+            variant="h1"
             fontWeight={400}
             color={"primary.dark"}
           >
             OUR KEY FOCUS AREAS
           </MotionTypography>
           <MotionTypography
-            variant='h5'
+            variant="h5"
             fontWeight={400}
             color={"primary.dark"}
           >
@@ -42,7 +42,7 @@ const KeyFoxusSection = () => {
         alignItems={"center"}
       >
         <Stack
-          direction='row'
+          direction="row"
           alignItems={"center"}
           //   justifyContent={"center"}
           //   width={{ xs: 1, md: 354, lg: 528, large: 651 }}
@@ -57,7 +57,7 @@ const KeyFoxusSection = () => {
           >
             <MotionImage
               src={skillImage}
-              alt='Skill Banner'
+              alt="Skill Banner"
               //   {...imageTransition}
               fill
             />
@@ -70,25 +70,25 @@ const KeyFoxusSection = () => {
               height: { xs: 350, md: 350, lg: 443, large: 443 },
             }}
           >
-            <Image src={BigArrow} alt='Bajaj Beyond Logo' fill />
+            <Image src={BigArrow} alt="Bajaj Beyond Logo" fill />
           </Box>
         </Stack>
         <Stack maxWidth={448} rowGap={3}>
           <MotionTypography
-            variant='h3'
+            variant="h3"
             fontWeight={400}
             color={"primary.dark"}
           >
             SKILL DEVELOPEMENT
           </MotionTypography>
-          <MotionTypography variant='body1' color='primary.dark'>
+          <MotionTypography variant="body1" color="primary.dark">
             Providing skill-based education through various programs to
             strengthen the foundation of a progressive nation.
           </MotionTypography>
           <AnimatedButton
-            variant='outlined'
+            variant="outlined"
             href={"/"}
-            color='primary'
+            color="primary"
             sx={{
               width: { xs: "100%", md: "171px" },
               fontSize: { xs: "18px", md: "24px !important" },
@@ -99,7 +99,7 @@ const KeyFoxusSection = () => {
           </AnimatedButton>
         </Stack>
       </Stack>
-      <Stack direction='row' alignItems={"center"}>
+      <Stack direction="row" alignItems={"center"}>
         {data.map((item, idx) => (
           <SmallTitleCard
             key={idx}

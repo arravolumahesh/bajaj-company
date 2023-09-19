@@ -8,7 +8,7 @@ import {
   MotionBoxProps,
   MotionTypography,
   MotionTypographyProps,
-} from "@/commonComponents/motionElements";
+} from "@/commonComponents/motion-elements";
 import { PlayCircle } from "@mui/icons-material";
 
 const AboveProfitsSection = () => {

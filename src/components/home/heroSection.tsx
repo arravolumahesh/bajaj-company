@@ -8,7 +8,7 @@ import { motion, MotionProps } from "framer-motion";
 import {
   MotionImageProps,
   MotionTypography,
-} from "@/commonComponents/motionElements";
+} from "@/commonComponents/motion-elements";
 
 const HeroSection = () => {
   const [logoAnimate, setLogoAnimate] = useState(false);
