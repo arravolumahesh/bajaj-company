@@ -98,19 +98,21 @@ const AboveProfits = () => {
           "&:before": {
             content: '""',
             position: "absolute",
-            width: "100%",
-            height: "100%",
+            width: "200%",
+            height: "auto",
+            aspectRatio: 4.54,
             top: 0,
-            left: 0,
+            right: 0,
             background:
-              "url(http://localhost:3000/Group%20427321804.svg) repeat-x",
+              "url(http://localhost:3000/Group%20427321804.svg) repeat-x", //space
+            backgroundSize: "contain",
             animation: "slideIn 5s infinite linear",
             "@keyframes slideIn": {
               "0%": {
-                left: "-100%",
+                right: 0,
               },
               "100%": {
-                left: "100%",
+                right: "-100%",
               },
             },
           },
