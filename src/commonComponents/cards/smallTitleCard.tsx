@@ -1,13 +1,26 @@
 import { Card, CardContent, CardProps, Typography } from "@mui/material";
 import React from "react";
+import { EnhancedSwiperSlideData } from "@cc/enhanced-swiper";
 
 type SmallTitleCardProps = {
   img: string;
   title: string;
 } & CardProps;
 
-export const SmallTitleCard = (props: SmallTitleCardProps) => {
-  const { img, title, sx, ...restProps } = props;
+export const SmallTitleCard: EnhancedSwiperSlideData<SmallTitleCardProps> = (
+  props,
+) => {
+  const {
+    img,
+    title,
+    sx,
+    index,
+    isPrev,
+    isActive,
+    isVisible,
+    isNext,
+    ...restProps
+  } = props;
   // const { img, title } = props.data;
   return (
     <Card

@@ -23,14 +23,14 @@ const KeyFocus = () => {
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <SectionWrapper
-    pt={{ xs: 7, md: 4 }}
-    pb={{ xs: 7, md: 8 }}
-    rowGap={{ xs: 6, md: 8 }}
-    SectionProps={{
-      bgcolor: "common.white",
-    }}
-    overflow={"hidden"}
-  >
+      pt={{ xs: 7, md: 4 }}
+      pb={{ xs: 7, md: 8 }}
+      rowGap={{ xs: 6, md: 8 }}
+      SectionProps={{
+        bgcolor: "common.white",
+      }}
+      overflow={"hidden"}
+    >
       <Stack
         direction={"row"}
         alignItems={"center"}
@@ -135,7 +135,7 @@ const KeyFocus = () => {
           }
         />
       </Stack>
-      </SectionWrapper>
+    </SectionWrapper>
   );
 };
 

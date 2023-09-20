@@ -10,18 +10,23 @@ export type SlideData = {
   isPrev: boolean;
   isNext: boolean;
   isVisible: boolean;
+  index: number;
 };
 
 export interface EnhancedSwiperProps<
   T extends ComponentType<any> = ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
+  PS = P extends SlideData
+    ? Omit<P, "index" | "isActive" | "isPrev" | "isNext" | "isVisible"> &
+        Partial<SlideData>
+    : P,
 > extends ComponentProps<typeof MaterialSwiper> {
-  data: P[];
+  data: PS[];
   passSlideState?: boolean;
   SlideWrapperProps?:
     | ComponentProps<typeof MaterialSwiperSlide>
     | ((index: number) => ComponentProps<typeof MaterialSwiperSlide>);
-  SlideComponentProps?: Partial<P> | ((index: number) => Partial<P>);
+  SlideComponentProps?: Partial<PS> | ((index: number) => Partial<PS>);
   SlideComponent: ComponentType<P & SlideData>;
   Slots?: {
     ContainerStartChildren?: ReactNode;
@@ -79,7 +84,7 @@ const EnhancedSwiper = <
                     ? SlideComponentProps(idx)
                     : SlideComponentProps)}
                   {...item}
-                  {...(passSlideState ? slideData : {})}
+                  {...(passSlideState ? { ...slideData, index: idx } : {})}
                 />
               );
             }}
