@@ -1,3 +1,4 @@
+"use client";
 import { sxArrayUtil } from "@util/sx-helpers";
 import {
   AddRounded,

@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
 
-const KeyFocusSection = () => {
+const KeyFocus = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -33,7 +33,7 @@ const KeyFocusSection = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        <MotionImage src={Arrow} alt='' {...imageTransition} hidden={matches} />
+        <MotionImage src={Arrow} alt="" {...imageTransition} hidden={matches} />
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -45,7 +45,7 @@ const KeyFocusSection = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant='h1'
+              variant="h1"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -53,7 +53,7 @@ const KeyFocusSection = () => {
               OUR KEY FOCUS AREAS
             </MotionTypography>
             <MotionTypography
-              variant='h5'
+              variant="h5"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -74,13 +74,13 @@ const KeyFocusSection = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle='Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation.'
-          textColor='primary.dark'
+          subtitle="Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation."
+          textColor="primary.dark"
         >
           <Image
             src={skillImage}
-            alt='Skill Banner'
+            alt="Skill Banner"
             //   {...imageTransition}
             fill
           />
@@ -92,7 +92,7 @@ const KeyFocusSection = () => {
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
-        direction='row'
+        direction="row"
         alignItems={"center"}
       >
         {/* {data.map((item, idx) => (
@@ -126,7 +126,7 @@ const KeyFocusSection = () => {
   );
 };
 
-export default KeyFocusSection;
+export default KeyFocus;
 
 const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   initial: {

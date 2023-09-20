@@ -1,13 +1,13 @@
-import AboveProfitsSection from "@/components/home/aboveProfitsSection";
-import HeroSection from "@/components/home/heroSection";
-import KeyFocusSection from "@/components/home/keyFocusSection";
+import AbovePofits from "@/components/home/above-pofits";
+import Hero from "@/components/home/hero";
+import KeyFocus from "@/components/home/key-focus";
 
 const HomePage = () => {
   return (
     <>
-      <HeroSection />
-      <AboveProfitsSection />
-      <KeyFocusSection />
+      <Hero />
+      <AbovePofits />
+      <KeyFocus />
     </>
   );
 };
