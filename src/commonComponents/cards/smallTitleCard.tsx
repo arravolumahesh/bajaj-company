@@ -1,13 +1,9 @@
 import { Card, CardContent, CardProps, Typography } from "@mui/material";
 import React from "react";
-import { MotionVariantProps } from "../motion-elements";
 
 type SmallTitleCardProps = {
-  // data: {
   img: string;
   title: string;
-  // };
-  variants?: MotionVariantProps;
 } & CardProps;
 
 export const SmallTitleCard = (props: SmallTitleCardProps) => {
@@ -33,7 +29,7 @@ export const SmallTitleCard = (props: SmallTitleCardProps) => {
           pb: "16px !important",
         }}
       >
-        <Typography variant='h5' fontWeight={400} color={"white"}>
+        <Typography variant="h5" fontWeight={400} color={"white"}>
           {title}
         </Typography>
       </CardContent>

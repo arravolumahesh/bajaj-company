@@ -15,7 +15,6 @@ import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
 import EnhancedSwiper, {
   EnhancedSwiperProps,
-  EnhancedSwiperSlideData,
 } from "@/commonComponents/enhanced-swiper";
 import SectionWrapper from "@/commonComponents/section-wrapper";
 
@@ -38,7 +37,7 @@ const KeyFocus = () => {
         columnGap={4}
         pl={{ xs: 0, md: "5.5%" }}
       >
-        <MotionImage src={Arrow} alt='' {...imageTransition} hidden={matches} />
+        <MotionImage src={Arrow} alt="" {...imageTransition} hidden={matches} />
         <Stack
           component={motion.div}
           variants={staggerDiv}
@@ -50,8 +49,7 @@ const KeyFocus = () => {
         >
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
-              variant='h1'
-              component='h3'
+              variant="h1"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -59,7 +57,7 @@ const KeyFocus = () => {
               OUR KEY FOCUS AREAS
             </MotionTypography>
             <MotionTypography
-              variant='h5'
+              variant="h5"
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
@@ -80,13 +78,13 @@ const KeyFocus = () => {
       >
         <SlideAnimationWrapper
           title={"SKILL DEVELOPEMENT"}
-          subtitle='Providing skill-based education through various programs to strengthen
-          the foundation of a progressive nation.'
-          textColor='primary.dark'
+          subtitle="Providing skill-based education through various programs to strengthen
+          the foundation of a progressive nation."
+          textColor="primary.dark"
         >
           <Image
             src={skillImage}
-            alt='Skill Banner'
+            alt="Skill Banner"
             //   {...imageTransition}
             fill
           />
@@ -98,7 +96,7 @@ const KeyFocus = () => {
         initial={"initial"}
         whileInView={"animate"}
         viewport={{ once: true }}
-        direction='row'
+        direction="row"
         alignItems={"center"}
       >
         {/* {data.map((item, idx) => (
@@ -122,17 +120,19 @@ const KeyFocus = () => {
           sx={{ m: 0, overflow: "unset" }}
           SlideComponent={SmallTitleCard}
           data={data}
-          SlideComponentProps={{
-            sx: { backgroundPosition: "center" },
-            component: motion.div,
-            variants: staggerCardChildren,
-            initial: "initial",
-            whileInView: "animate",
-            whileHover: "zoom",
-            viewport: {
-              once: true,
-            },
-          }}
+          SlideComponentProps={
+            {
+              // sx: { backgroundPosition: "center" },
+              // component: motion.div,
+              // variants: staggerCardChildren,
+              // initial: "initial",
+              // whileInView: "animate",
+              // whileHover: "zoom",
+              // viewport: {
+              //   once: true,
+              // },
+            }
+          }
         />
       </Stack>
       </SectionWrapper>
