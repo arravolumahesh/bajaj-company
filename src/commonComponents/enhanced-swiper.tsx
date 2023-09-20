@@ -14,14 +14,15 @@ export type SlideData = {
 
 export interface EnhancedSwiperProps<
   T extends ComponentType<any> = ComponentType<any>,
-  P = ComponentProps<T>,
+  P extends ComponentProps<T> = ComponentProps<T>,
 > extends ComponentProps<typeof MaterialSwiper> {
   data: P[];
+  passSlideState?: boolean;
   SlideWrapperProps?:
     | ComponentProps<typeof MaterialSwiperSlide>
     | ((index: number) => ComponentProps<typeof MaterialSwiperSlide>);
+  SlideComponentProps?: Partial<P> | ((index: number) => Partial<P>);
   SlideComponent: ComponentType<P & SlideData>;
-  SlideComponentProps?: P | ((index: number) => P);
   Slots?: {
     ContainerStartChildren?: ReactNode;
     ContainerStartProps?: ComponentProps<typeof Stack>;
@@ -46,11 +47,15 @@ export const MaterialSwiperSlide = styled(SwiperSlide)(({ theme }) => {
   return theme.unstable_sx({});
 });
 
-const EnhancedSwiper = <T extends ComponentType<any>>(
-  props: EnhancedSwiperProps<T>,
+const EnhancedSwiper = <
+  T extends ComponentType<any>,
+  P extends ComponentProps<T>,
+>(
+  props: EnhancedSwiperProps<T, P>,
 ) => {
   const {
     data = [],
+    passSlideState,
     SlideComponent,
     SlideComponentProps,
     SlideWrapperProps,
@@ -70,9 +75,11 @@ const EnhancedSwiper = <T extends ComponentType<any>>(
             {(slideData) => {
               return (
                 <SlideComponent
-                  {...SlideComponentProps}
+                  {...(typeof SlideComponentProps === "function"
+                    ? SlideComponentProps(idx)
+                    : SlideComponentProps)}
                   {...item}
-                  {...slideData}
+                  {...(passSlideState ? slideData : {})}
                 />
               );
             }}
@@ -122,4 +129,3 @@ const EnhancedSwiper = <T extends ComponentType<any>>(
 };
 
 export default EnhancedSwiper;
-
