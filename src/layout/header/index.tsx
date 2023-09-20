@@ -1,12 +1,30 @@
 "use client";
-import { AppBar, Slide, SxProps, Theme, useScrollTrigger } from "@mui/material";
+import {
+  AppBar,
+  AppBarProps,
+  Slide,
+  SxProps,
+  Theme,
+  useScrollTrigger,
+} from "@mui/material";
 import Logo from "@cc/logo";
 import SectionWrapper from "@cc/section-wrapper";
 import Navigation from "@/layout/header/navigation";
 import { MLinkProps } from "@cc/m-link";
 import { Property } from "csstype";
 import { ResponsiveStyleValue } from "@mui/system";
-import { ReactElement } from "react";
+import { styled } from "@mui/material/styles";
+
+const ReactiveAppBar = styled((props: AppBarProps) => {
+  const trigger = useScrollTrigger();
+  return (
+    <Slide appear={false} direction={"down"} in={!trigger}>
+      <AppBar elevation={0} {...props} />
+    </Slide>
+  );
+})(({ theme }) => {
+  return theme.unstable_sx(appbarSx);
+});
 
 export interface HeaderProps {
   routes: {
@@ -19,31 +37,30 @@ export interface HeaderProps {
 const Header = (props: HeaderProps) => {
   const { routes } = props;
   return (
-    <HideOnScroll>
-      <AppBar sx={appbarSx} elevation={0}>
-        <SectionWrapper
-          direction={"row"}
-          alignItems={"center"}
-          py={0}
-          height={"inherit"}
-        >
-          <Logo
-            SvgIconProps={{
-              sx: {
-                width: { xs: 71, md: 91, xl: 107 },
-                height: { xs: 40, md: 52, xl: 64 },
-              },
-            }}
-          />
-          <Navigation
-            sx={{
-              ml: "auto",
-            }}
-            routes={routes}
-          />
-        </SectionWrapper>
-      </AppBar>
-    </HideOnScroll>
+    <SectionWrapper
+      direction={"row"}
+      alignItems={"center"}
+      py={0}
+      height={"inherit"}
+      SectionProps={{
+        component: ReactiveAppBar,
+      }}
+    >
+      <Logo
+        SvgIconProps={{
+          sx: {
+            width: { xs: 71, md: 91, xl: 107 },
+            height: { xs: 40, md: 52, xl: 64 },
+          },
+        }}
+      />
+      <Navigation
+        sx={{
+          ml: "auto",
+        }}
+        routes={routes}
+      />
+    </SectionWrapper>
   );
 };
 
@@ -54,20 +71,13 @@ const appbarSx: SxProps<Theme> = (theme) => {
     background: theme.palette.gradient.primary,
     color: "primary.contrastText",
     height: { xs: 64, md: 92, xl: 120 },
+      boxShadow: "none",
     zIndex: theme.zIndex.drawer + 1,
   };
 };
 
-export const appbarHeight: ResponsiveStyleValue<
-  Property.Height<string | number>
-> = { xs: "64px", md: "92px", xl: "120px" };
-
-const HideOnScroll = (props: { children: ReactElement }) => {
-  const { children } = props;
-  const trigger = useScrollTrigger();
-  return (
-    <Slide appear={false} direction={"down"} in={!trigger}>
-      {children}
-    </Slide>
-  );
+export const appbarHeight: ResponsiveStyleValue<Property.Height<string | number>> = {
+  xs: "64px",
+  md: "92px",
+  xl: "120px",
 };
