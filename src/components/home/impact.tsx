@@ -11,7 +11,12 @@ const Impact = () => {
       }}
       py={{ xs: 7, md: 12 }}
     >
-      <Stack>
+      <Stack
+        maxWidth={{ xs: 1, md: 867 }}
+        textAlign='center'
+        rowGap={4}
+        m={"auto"}
+      >
         <MotionTypography
           variant='h1'
           component='h3'
@@ -20,7 +25,7 @@ const Impact = () => {
         >
           DRIVING A LASTING IMPACT
         </MotionTypography>
-        <MotionTypography color={"white"}>
+        <MotionTypography variant='h6' color={"white"} fontWeight={400}>
           These are not mere numbers. They’re a testament to our relentless
           dedication towards making a tangible impact in communities across the
           nation.
