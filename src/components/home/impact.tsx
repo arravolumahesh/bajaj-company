@@ -3,7 +3,7 @@ import SectionWrapper from "@/commonComponents/section-wrapper";
 import { Stack } from "@mui/material";
 import React from "react";
 
-const ImpactSection = () => {
+const Impact = () => {
   return (
     <SectionWrapper
       SectionProps={{
@@ -30,4 +30,4 @@ const ImpactSection = () => {
   );
 };
 
-export default ImpactSection;
+export default Impact;
