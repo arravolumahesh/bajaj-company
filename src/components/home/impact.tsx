@@ -40,6 +40,7 @@ const Impact = () => {
         mx={"auto"}
         mt={11}
         mb={4}
+        alignItems={"center"}
         justifyContent={"space-between"}
       >
         <Stack alignItems={"center"} rowGap={1}>
