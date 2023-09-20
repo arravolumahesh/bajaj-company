@@ -13,7 +13,10 @@ import skillImage from "./images/Rectangle 24993.png";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
-import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import EnhancedSwiper, {
+  EnhancedSwiperProps,
+  EnhancedSwiperSlideData,
+} from "@/commonComponents/enhanced-swiper";
 
 const KeyFocusSection = () => {
   const theme = useTheme();
@@ -102,20 +105,23 @@ const KeyFocusSection = () => {
           slidesPerView={"auto"}
           SlideWrapperProps={{
             sx: {
-              width: { xs: 200, lg: 316 },
+              width: { xs: 200, lg: 328 },
               mr: { xs: 2, lg: 0 },
             },
           }}
-          sx={{ m: 0 }}
+          sx={{ m: 0, overflow: "unset" }}
           SlideComponent={SmallTitleCard}
           data={data}
           SlideComponentProps={{
             sx: { backgroundPosition: "center" },
             component: motion.div,
             variants: staggerCardChildren,
-            initial: staggerCardChildren.initial,
-            whileInView: staggerCardChildren.animate,
+            initial: "initial",
+            whileInView: "animate",
             whileHover: "zoom",
+            viewport: {
+              once: true,
+            },
           }}
         />
       </Stack>
@@ -127,7 +133,7 @@ export default KeyFocusSection;
 
 const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   initial: {
-    x: "-210%",
+    x: "-200%",
   },
   whileInView: {
     x: 0,
@@ -192,7 +198,7 @@ const staggerCardChildren: MotionVariantProps = {
   },
 };
 
-const data = [
+const data: EnhancedSwiperProps<typeof SmallTitleCard>["data"] = [
   {
     img: "https://s3-alpha-sig.figma.com/img/ed73/370e/ea2e14bb7a0531b2ec3d564e9bb2f7b4?Expires=1696204800&Signature=EdpSrFd6cjU8EHmvar8WyAo5mGxboPbLCXbdTmZzD~bfTUZDmYe4stteTwa5gVFC4rprPdBMxtT6zUZWkZMrqKqNBMbfUommrK1mrr0GAoPS9nhi0jZMBreu88MVILhNNd8b3UyAry6oPEtszLTeOdefS42oSsZtM5mncd1qju-cLzc36GAib2uVgV217lOnwFaz61kYjLfRRtKfj3NzjPar572velkhMpiWcA1IrMQu7qYIo5evfmjZ-Bmz7f7Ii-7VZB6jUrdGLu3VENS1RSH9iOzWVtkwo0OWqqAT4tXIOV2~MhzHVncp6h15LzqhwavpufBOLxMXUBKvhw2b0A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
     title: "Education",
