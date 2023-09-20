@@ -66,7 +66,7 @@ const Hero = () => {
         direction='row'
         alignItems={"center"}
         justifyContent={"center"}
-        width={{ xs: 1, md: 354, lg: 528, large: 651 }}
+        width={{ xs: 1, md: 354, lg: 528 /* large: 651 */ }}
       >
         <Slide
           direction='right'
@@ -77,10 +77,10 @@ const Hero = () => {
           <Box
             sx={{
               position: "relative",
-              mr: { xs: "-90px", lg: "-167px", large: "-230px" },
+              mr: { xs: "-90px", lg: "-167px" /* large: "-230px" */ },
               zIndex: 1,
-              width: { xs: 111, md: 117, lg: 221, large: 320 },
-              height: { xs: 350, md: 350, lg: 600, large: 700 },
+              width: { xs: 111, md: 117, lg: 221 /* large: 320 */ },
+              height: { xs: 350, md: 350, lg: 600 /* large: 700 */ },
             }}
           >
             <Image src={BajajLogo} alt='Bajaj Beyond Logo' fill />
@@ -89,8 +89,8 @@ const Hero = () => {
         <Box
           sx={{
             position: "relative",
-            width: { xs: 255, md: 255, lg: 475, large: 560 },
-            height: { xs: 277, md: 300, lg: 543, large: 635 },
+            width: { xs: 255, md: 255, lg: 475 /* large: 560 */ },
+            height: { xs: 277, md: 300, lg: 543 /* large: 635 */ },
             overflow: "hidden",
             // clipPath: "polygon(0% 0%, 75% 0%, 100% 50%, 74% 100%, 0% 100%)",
             clipPath:
