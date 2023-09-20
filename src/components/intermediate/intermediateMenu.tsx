@@ -8,11 +8,13 @@ const IntermediateMenu = () => {
     return (
         <>
             <SectionWrapper
-                sx={{
+                SectionProps={{
+                    sx:{
                     borderBottom: '1px solid var(--Stroke, #EAEAEA)',
-                    background: '#F8F8F8',
-                    py:0
+                    background: '#F8F8F8',                    
+                }
                 }}
+                sx={{py:0}}
             >
                 <Box
                 sx={{
