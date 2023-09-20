@@ -21,7 +21,6 @@ const Impact = () => {
       >
         <MotionTypography
           variant='h1'
-          component='h3'
           color={"white"}
           fontWeight={400}
         >
