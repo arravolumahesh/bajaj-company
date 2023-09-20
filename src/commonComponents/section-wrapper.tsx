@@ -1,16 +1,20 @@
+"use client";
 import { Stack, StackProps } from "@mui/material";
+import { forwardRef } from "react";
 
 interface SectionWrapperProps extends StackProps {
-  SectionProps: Omit<StackProps, "children">;
+  SectionProps?: Omit<StackProps, "children">;
 }
 
-const SectionWrapper = (props: SectionWrapperProps) => {
+const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
+  (props, ref) => {
     const { children, SectionProps, ...rest } = props;
     return (
       <Stack
         component={"section"}
         alignItems={"center"}
         height={1}
+        ref={ref}
         {...SectionProps}
       >
         <Stack
@@ -21,7 +25,7 @@ const SectionWrapper = (props: SectionWrapperProps) => {
           }}
           py={3.5}
           width={1}
-          maxWidth={(theme) => theme.breakpoints.values.xxl}
+          maxWidth={"xxl"}
           height={"inherit"}
           {...rest}
         >
@@ -29,6 +33,9 @@ const SectionWrapper = (props: SectionWrapperProps) => {
         </Stack>
       </Stack>
     );
-};
+  }
+);
 
 export default SectionWrapper;
+
+SectionWrapper.displayName = SectionWrapper.name;
