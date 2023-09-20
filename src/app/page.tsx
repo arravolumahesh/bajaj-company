@@ -1,6 +1,7 @@
 import SectionWrapper from "@/commonComponents/section-wrapper";
 import AboveProfitsSection from "@/components/home/aboveProfitsSection";
 import HeroSection from "@/components/home/heroSection";
+import ImpactSection from "@/components/home/impactSection";
 import KeyFocusSection from "@/components/home/keyFocusSection";
 
 const HomePage = () => {
@@ -59,6 +60,7 @@ const HomePage = () => {
       >
         <KeyFocusSection />
       </SectionWrapper>
+      <ImpactSection />
     </>
   );
 };

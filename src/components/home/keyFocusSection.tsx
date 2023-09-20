@@ -42,6 +42,7 @@ const KeyFocusSection = () => {
           <Stack maxWidth={814} rowGap={{ xs: 2, md: 4 }}>
             <MotionTypography
               variant='h1'
+              component='h3'
               fontWeight={400}
               color={"primary.dark"}
               variants={staggerChildren}
