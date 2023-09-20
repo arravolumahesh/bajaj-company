@@ -31,13 +31,17 @@ const IntermediateCount = () => {
 
     return (
         <>
-            <SectionWrapper
+            <SectionWrapper 
+                SectionProps={{
+                    sx:{
+                        backgroundColor: 'white'
+                    }
+                }}
                 sx={{
-                    pt:5,
-                    pb:12,
-                    backgroundColor:'white'
-                }}                
-            >
+                    pt: 5,
+                    pb: 12,
+                    backgroundColor: 'white'
+                }} >
                 <Box
                     ref={invref}
                     sx={{
