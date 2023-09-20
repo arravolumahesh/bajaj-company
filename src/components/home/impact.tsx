@@ -35,7 +35,7 @@ const Impact = () => {
       </Stack>
       <Stack
         direction={"row"}
-        width={1232}
+        width={1}
         maxWidth={1232}
         mx={"auto"}
         mt={11}
