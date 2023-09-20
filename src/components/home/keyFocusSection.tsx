@@ -19,14 +19,7 @@ const KeyFocusSection = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Stack
-      bgcolor={"white"}
-      pt={{ xs: 7, md: 4 }}
-      pb={{ xs: 7, md: 8 }}
-      px={{ xs: 3, md: 9 }}
-      rowGap={{ xs: 6, md: 8 }}
-      overflow={"hidden"}
-    >
+    <>
       <Stack
         direction={"row"}
         alignItems={"center"}
@@ -102,6 +95,7 @@ const KeyFocusSection = () => {
             sx={{ backgroundPosition: "center" }}
             component={motion.div}
             variants={staggerCardChildren}
+            whileHover={"zoom"}
           />
         ))} */}
         <EnhancedSwiper
@@ -118,11 +112,14 @@ const KeyFocusSection = () => {
           SlideComponentProps={{
             sx: { backgroundPosition: "center" },
             component: motion.div,
-            variants: { staggerCardChildren },
+            variants: staggerCardChildren,
+            initial: staggerCardChildren.initial,
+            whileInView: staggerCardChildren.animate,
+            whileHover: "zoom",
           }}
         />
       </Stack>
-    </Stack>
+    </>
   );
 };
 
@@ -188,6 +185,10 @@ const staggerCardChildren: MotionVariantProps = {
     transition: {
       duration: 0.6,
     },
+  },
+  zoom: {
+    transform: "scale(1.1)",
+    zIndex: 1,
   },
 };
 

@@ -1,3 +1,4 @@
+"use client";
 import { Stack, StackProps } from "@mui/material";
 import { forwardRef } from "react";
 
@@ -32,7 +33,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         </Stack>
       </Stack>
     );
-  },
+  }
 );
 
 export default SectionWrapper;
