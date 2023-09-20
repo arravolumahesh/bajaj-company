@@ -1,0 +1,71 @@
+"use client"
+
+import { MotionButton } from "@/commonComponents/motionElements"
+import SectionWrapper from "@/commonComponents/section-wrapper"
+import { Box } from "@mui/material"
+
+const IntermediateMenu = () => {
+    return (
+        <>
+            <SectionWrapper
+                sx={{
+                    borderBottom: '1px solid var(--Stroke, #EAEAEA)',
+                    background: '#F8F8F8',
+                    py:0
+                }}
+            >
+                <Box
+                sx={{
+                    display:'flex',
+                    justifyContent:'space-around',
+                    overflow:'auto',
+                    gap:{xs:5,lg:0}
+                }}
+                >
+                    {skillMenu.map((item,index)=> {
+                        return(
+                            <MotionButton variant="menulink" color={index === 1 ? "secondary" : "primary"} href={item.url} key={index}>
+                                {item.title}
+                            </MotionButton>
+                        )
+                    })}
+                </Box>
+                
+            </SectionWrapper>
+        </>
+    )
+}
+
+
+const skillMenu = [
+    {
+        'title':'All',
+        'url':'',
+    },
+    {
+        'title':'Skill Development',
+        'url':'',
+    },
+    {
+        'title':'Education',
+        'url':'',
+    },
+    {
+        'title':'Women Empowerment',
+        'url':'',
+    },
+    {
+        'title':'Community',
+        'url':'',
+    },
+    {
+        'title':'Animal welfare',
+        'url':'',
+    },
+    {
+        'title':'Other Initiatives',
+        'url':'',
+    },
+]
+
+export default IntermediateMenu

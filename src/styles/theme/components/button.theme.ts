@@ -9,6 +9,13 @@ import {helvetica} from "app/font";
  *
  * @see https://mui.com/material-ui/react-button/#customization
  */
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    menulink: true;
+  }
+}
+
 export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] = {
   styleOverrides: {
     root: ({ ownerState, theme }) => {
@@ -117,4 +124,26 @@ export const ButtonVariants: Components<Omit<Theme, "components">>["MuiButton"] 
       ]);
     },
   },
+  variants:[
+    {
+     props:{
+      variant:'menulink',
+     },
+     style:({ theme })=>{
+      return {
+        color:theme.palette.grey[500],
+        padding:theme.spacing(2),
+        paddingLeft:0,
+        paddingRight:0,        
+        borderBottom:'2px solid',
+        borderColor:'transparent',
+        "&.MuiButton-menulinkSecondary, &:hover ":{
+          color:theme.palette.primary.dark,
+          borderColor:theme.palette.primary.dark,
+          background:'none',
+        }
+      }
+     }
+    }
+  ]
 };
