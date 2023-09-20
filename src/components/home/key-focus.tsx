@@ -13,20 +13,16 @@ import skillImage from "./images/Rectangle 24993.png";
 import { SmallTitleCard } from "@/commonComponents/cards/smallTitleCard";
 import { motion } from "framer-motion";
 import SlideAnimationWrapper from "@/commonComponents/slideAnimation/slide-animation-wrapper";
-import EnhancedSwiper from "@/commonComponents/enhanced-swiper";
+import EnhancedSwiper, {
+  EnhancedSwiperProps,
+  EnhancedSwiperSlideData,
+} from "@/commonComponents/enhanced-swiper";
 
 const KeyFocus = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <Stack
-      bgcolor={"white"}
-      pt={{ xs: 7, md: 4 }}
-      pb={{ xs: 7, md: 8 }}
-      px={{ xs: 3, md: 9 }}
-      rowGap={{ xs: 6, md: 8 }}
-      overflow={"hidden"}
-    >
+    <>
       <Stack
         direction={"row"}
         alignItems={"center"}
@@ -102,27 +98,34 @@ const KeyFocus = () => {
             sx={{ backgroundPosition: "center" }}
             component={motion.div}
             variants={staggerCardChildren}
+            whileHover={"zoom"}
           />
         ))} */}
         <EnhancedSwiper
           slidesPerView={"auto"}
           SlideWrapperProps={{
             sx: {
-              width: { xs: 200, lg: 316 },
+              width: { xs: 200, lg: 328 },
               mr: { xs: 2, lg: 0 },
             },
           }}
-          sx={{ m: 0 }}
+          sx={{ m: 0, overflow: "unset" }}
           SlideComponent={SmallTitleCard}
           data={data}
           SlideComponentProps={{
             sx: { backgroundPosition: "center" },
             component: motion.div,
-            variants: { staggerCardChildren },
+            variants: staggerCardChildren,
+            initial: "initial",
+            whileInView: "animate",
+            whileHover: "zoom",
+            viewport: {
+              once: true,
+            },
           }}
         />
       </Stack>
-    </Stack>
+    </>
   );
 };
 
@@ -130,7 +133,7 @@ export default KeyFocus;
 
 const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   initial: {
-    x: "-210%",
+    x: "-200%",
   },
   whileInView: {
     x: 0,
@@ -189,9 +192,13 @@ const staggerCardChildren: MotionVariantProps = {
       duration: 0.6,
     },
   },
+  zoom: {
+    transform: "scale(1.1)",
+    zIndex: 1,
+  },
 };
 
-const data = [
+const data: EnhancedSwiperProps<typeof SmallTitleCard>["data"] = [
   {
     img: "https://s3-alpha-sig.figma.com/img/ed73/370e/ea2e14bb7a0531b2ec3d564e9bb2f7b4?Expires=1696204800&Signature=EdpSrFd6cjU8EHmvar8WyAo5mGxboPbLCXbdTmZzD~bfTUZDmYe4stteTwa5gVFC4rprPdBMxtT6zUZWkZMrqKqNBMbfUommrK1mrr0GAoPS9nhi0jZMBreu88MVILhNNd8b3UyAry6oPEtszLTeOdefS42oSsZtM5mncd1qju-cLzc36GAib2uVgV217lOnwFaz61kYjLfRRtKfj3NzjPar572velkhMpiWcA1IrMQu7qYIo5evfmjZ-Bmz7f7Ii-7VZB6jUrdGLu3VENS1RSH9iOzWVtkwo0OWqqAT4tXIOV2~MhzHVncp6h15LzqhwavpufBOLxMXUBKvhw2b0A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
     title: "Education",

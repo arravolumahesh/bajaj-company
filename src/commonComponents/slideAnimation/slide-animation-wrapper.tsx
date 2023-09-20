@@ -127,7 +127,7 @@ export default SlideAnimationWrapper;
 
 const boxTransition: MotionBoxProps = {
   initial: {
-    x: "-111%",
+    x: "-107%",
   },
   whileInView: {
     x: 0,

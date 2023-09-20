@@ -7,7 +7,7 @@ type SmallTitleCardProps = {
   img: string;
   title: string;
   // };
-  variants: MotionVariantProps;
+  variants?: MotionVariantProps;
 } & CardProps;
 
 export const SmallTitleCard = (props: SmallTitleCardProps) => {
