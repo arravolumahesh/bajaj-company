@@ -18,7 +18,7 @@ import EnhancedSwiper, {
   EnhancedSwiperSlideData,
 } from "@/commonComponents/enhanced-swiper";
 
-const KeyFocusSection = () => {
+const KeyFocus = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -130,7 +130,7 @@ const KeyFocusSection = () => {
   );
 };
 
-export default KeyFocusSection;
+export default KeyFocus;
 
 const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   initial: {

@@ -25,7 +25,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
           }}
           py={3.5}
           width={1}
-          maxWidth={(theme) => theme.breakpoints.values.xxl}
+          maxWidth={"xxl"}
           height={"inherit"}
           {...rest}
         >

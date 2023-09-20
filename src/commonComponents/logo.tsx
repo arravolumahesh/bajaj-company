@@ -1,3 +1,4 @@
+"use client";
 import MLink, { MLinkProps } from "@cc/m-link";
 import { SvgIcon } from "@mui/material";
 import { sxArrayUtil } from "@util/sx-helpers";

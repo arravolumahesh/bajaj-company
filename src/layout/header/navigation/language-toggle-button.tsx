@@ -1,3 +1,4 @@
+"use client";
 import { alpha, Button, ButtonProps, Typography } from "@mui/material";
 import { useState } from "react";
 import { sxArrayUtil } from "@util/sx-helpers";

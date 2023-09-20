@@ -1,3 +1,4 @@
+"use client";
 import { sxArrayUtil } from "@util/sx-helpers";
 import { CloseRounded, SearchRounded } from "@mui/icons-material";
 import {

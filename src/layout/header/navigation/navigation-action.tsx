@@ -1,3 +1,4 @@
+"use client";
 import { alpha, Stack, SxProps, Theme, useMediaQuery } from "@mui/material";
 import LanguageToggleButton from "@/layout/header/navigation/language-toggle-button";
 import SearchDrawerToggler from "@/layout/header/navigation/search-drawer";

@@ -4,14 +4,14 @@ import { Box, Slide, Stack } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import BajajLogo from "./images/Graphics.svg";
-import { motion, MotionProps } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   MotionImageProps,
   MotionTypography,
   MotionVariantProps,
 } from "@/commonComponents/motion-elements";
 
-const HeroSection = () => {
+const Hero = () => {
   const [logoAnimate, setLogoAnimate] = useState(false);
   useEffect(() => {
     setLogoAnimate(true);
@@ -127,7 +127,7 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default Hero;
 
 const imageTransition: Omit<MotionImageProps, "src" | "alt"> = {
   style: {

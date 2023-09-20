@@ -1,8 +1,8 @@
 import SectionWrapper from "@/commonComponents/section-wrapper";
-import AboveProfitsSection from "@/components/home/aboveProfitsSection";
-import HeroSection from "@/components/home/heroSection";
-import ImpactSection from "@/components/home/impactSection";
-import KeyFocusSection from "@/components/home/keyFocusSection";
+import Hero from "@/components/home/hero";
+import AboveProfits from "@/components/home/above-pofits";
+import KeyFocus from "@/components/home/key-focus";
+import Impact from "@/components/home/impact";
 
 const HomePage = () => {
   return (
@@ -15,7 +15,7 @@ const HomePage = () => {
           },
         }}
       >
-        <HeroSection />
+        <Hero />
       </SectionWrapper>
       <SectionWrapper
         SectionProps={{
@@ -47,7 +47,7 @@ const HomePage = () => {
         }}
         py={{ xs: 7, md: 12 }}
       >
-        <AboveProfitsSection />
+        <AboveProfits />
       </SectionWrapper>
       <SectionWrapper
         pt={{ xs: 7, md: 4 }}
@@ -58,9 +58,9 @@ const HomePage = () => {
         }}
         overflow={"hidden"}
       >
-        <KeyFocusSection />
+        <KeyFocus />
       </SectionWrapper>
-      <ImpactSection />
+      <Impact />
     </>
   );
 };
