@@ -4,6 +4,7 @@ import { ComponentProps, ComponentType, ReactNode } from "react";
 import "../../node_modules/swiper/swiper-bundle.min.css";
 import { styled } from "@mui/material/styles";
 import { Stack } from "@mui/material";
+import { SetOptional } from "type-fest";
 
 export type SlideData = {
   isActive: boolean;
@@ -17,8 +18,7 @@ export interface EnhancedSwiperProps<
   T extends ComponentType<any> = ComponentType<any>,
   P extends ComponentProps<T> = ComponentProps<T>,
   PS = P extends SlideData
-    ? Omit<P, "index" | "isActive" | "isPrev" | "isNext" | "isVisible"> &
-        Partial<SlideData>
+      ? SetOptional<P, "index" | "isActive" | "isPrev" | "isNext" | "isVisible">
     : P,
 > extends ComponentProps<typeof MaterialSwiper> {
   data: PS[];

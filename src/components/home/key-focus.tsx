@@ -120,19 +120,16 @@ const KeyFocus = () => {
           sx={{ m: 0, overflow: "unset" }}
           SlideComponent={SmallTitleCard}
           data={data}
-          SlideComponentProps={
-            {
-              // sx: { backgroundPosition: "center" },
-              // component: motion.div,
-              // variants: staggerCardChildren,
-              // initial: "initial",
-              // whileInView: "animate",
-              // whileHover: "zoom",
-              // viewport: {
-              //   once: true,
-              // },
-            }
-          }
+          SlideComponentProps={(index) => ({
+            sx: { backgroundPosition: "center" },
+            variants: staggerCardChildren,
+            initial: "initial",
+            whileInView: "animate",
+            whileHover: "zoom",
+            viewport: {
+              once: true,
+            },
+          })}
         />
       </Stack>
     </SectionWrapper>
