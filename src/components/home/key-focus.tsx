@@ -82,7 +82,7 @@ const KeyFocus = () => {
           the foundation of a progressive nation."
           textColor="primary.dark"
         >
-          <Image
+          <Image 
             src={skillImage}
             alt="Skill Banner"
             //   {...imageTransition}

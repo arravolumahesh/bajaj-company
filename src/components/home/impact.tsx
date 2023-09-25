@@ -4,6 +4,7 @@ import { Stack } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import line from "./images/Line 1322.svg";
+import { randomFillSync } from "crypto";
 
 const Impact = () => {
   return (
@@ -11,6 +12,7 @@ const Impact = () => {
       SectionProps={{
         bgcolor: "primary.main",
       }}
+      overflow={"hidden"}
       py={{ xs: 7, md: 12 }}
     >
       <Stack
@@ -75,3 +77,8 @@ const Impact = () => {
 };
 
 export default Impact;
+
+
+
+
+
