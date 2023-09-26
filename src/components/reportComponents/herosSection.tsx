@@ -75,7 +75,7 @@ const HerosSection = () => {
     };
   }, []);
 
- /* const itemsPerPage = screenSize==="desktop" ? 3 : screenSize==="tablet" ? 2 : 1; */
+  const itemsPerPage = screenSize==="desktop" ? 3 : screenSize==="tablet" ? 2 : 1; 
 
   return (
     <SectionWrapper
