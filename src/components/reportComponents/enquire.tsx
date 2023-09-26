@@ -51,7 +51,7 @@ const Enquire = () => {
       alignItems={"center"}
       sx={{
         flexDirection:screenSize==="mobile" ? "column" : "row",
-        gap:screenSize==="mobile" ? "8px" : "6px",
+        gap:screenSize==="mobile" ? "8px" : "15px",
       }} 
     /*  sx={{
         "@media (max-width: 600px)": {
